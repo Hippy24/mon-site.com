@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hippolyte Adechian</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+<body>
+
+  <header class="topbar" id="topbar">
+    <nav class="topbar-nav">
+      <a href="#about" class="nav-link active"><i class="fas fa-user"></i> <span id="nav-about">À propos</span></a>
+      <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> <span id="nav-education">Parcours académique</span></a>
+      <a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> <span id="nav-experience">Expériences professionnelles</span></a>
+      <a href="#skills" class="nav-link"><i class="fas fa-code"></i> <span id="nav-skills">Compétences</span></a>
+      <a href="#projects" class="nav-link"><i class="fas fa-folder-open"></i> <span id="nav-projects">Projets</span></a>
+      <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> <span id="nav-contact">Contact</span></a>
+    </nav>
+
+    <div class="topbar-right">
+      <div class="language-switcher">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+
+      <a href="CV.pdf" class="cv-btn" download id="cv-btn-text">
+        <i class="fas fa-download"></i> Télécharger mon CV
+      </a>
+    </div>
+  </header>
+
+  <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <button class="close-menu" id="close-menu" aria-label="Fermer le menu">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div class="mobile-language-switcher">
+      <button class="lang-btn active" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+
+    <nav class="mobile-nav">
+      <a href="#about" class="nav-link mobile-nav-link"><i class="fas fa-user"></i> <span id="nav-about-mobile">À propos</span></a>
+      <a href="#education" class="nav-link mobile-nav-link"><i class="fas fa-graduation-cap"></i> <span id="nav-education-mobile">Parcours académique</span></a>
+      <a href="#experience" class="nav-link mobile-nav-link"><i class="fas fa-briefcase"></i> <span id="nav-experience-mobile">Expériences professionnelles</span></a>
+      <a href="#skills" class="nav-link mobile-nav-link"><i class="fas fa-code"></i> <span id="nav-skills-mobile">Compétences</span></a>
+      <a href="#projects" class="nav-link mobile-nav-link"><i class="fas fa-folder-open"></i> <span id="nav-projects-mobile">Projets</span></a>
+      <a href="#contact" class="nav-link mobile-nav-link"><i class="fas fa-envelope"></i> <span id="nav-contact-mobile">Contact</span></a>
+      <a href="CV.pdf" class="cv-btn mobile-cv-btn" download id="cv-btn-text-mobile">
+        <i class="fas fa-download"></i> Télécharger mon CV
+      </a>
+    </nav>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+
+  <main class="main-content">
+
+    <section class="hero" id="hero">
+      <div class="hero-icons-bg">
+        <i class="fas fa-dna hero-bg-icon icon-1"></i>
+        <i class="fas fa-heartbeat hero-bg-icon icon-2"></i>
+        <i class="fas fa-chart-line hero-bg-icon icon-3"></i>
+        <i class="fas fa-database hero-bg-icon icon-4"></i>
+        <i class="fas fa-laptop-code hero-bg-icon icon-5"></i>
+        <i class="fas fa-microscope hero-bg-icon icon-6"></i>
+        <i class="fas fa-notes-medical hero-bg-icon icon-7"></i>
+        <i class="fas fa-brain hero-bg-icon icon-8"></i>
+      </div>
+
+      <div class="page-container">
+        <div class="hero-center">
+          <p class="hero-welcome animate-welcome" id="hero-welcome">Bienvenue sur ma page personnelle</p>
+          <h2 class="hero-name animate-fade-up" id="hero-name">Hippolyte ADECHIAN</h2>
+          <p class="hero-role animate-fade-up delay-1" id="hero-role">
+            Étudiant en Master 1 Data Science en Santé
+          </p>
+          <p class="hero-description animate-fade-up delay-2" id="hero-description">
+            Je transforme des données de santé complexes en informations fiables et exploitables
+            à travers la modélisation statistique, l’intelligence artificielle, le data management
+            et la visualisation interactive.
+          </p>
+
+          <div class="hero-contact-links">
+            <a href="mailto:hippolyteadechian@gmail.com" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/hippolyte-adechian-899a61286" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/Hippy24" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="tel:+33744248489" aria-label="Téléphone">
+              <i class="fas fa-phone"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-glow glow-1"></div>
+      <div class="hero-glow glow-2"></div>
+      <div class="hero-grid"></div>
+    </section>
+
+    <div class="page-container">
+      <section id="about" class="content-section reveal">
+        <h2 id="about-heading">À propos de moi</h2>
+        <div class="section-card">
+          <p id="about-p1">
+            🏥 Je suis actuellement étudiant en <strong>Master 1 Data Science en Santé</strong> à l’Université de Lille. Mon profil se situe à l’intersection de la santé, de l’analyse de données et des outils numériques, avec une volonté forte de mettre la science des données au service de problématiques concrètes dans le domaine biomédical.
+          </p>
+          <p id="about-p2">
+            🔬 Mon parcours s’appuie sur une première formation en <strong>imagerie médicale et radiobiologie</strong>, qui m’a permis d’acquérir une connaissance du milieu hospitalier, des pratiques cliniques et de la réalité du terrain en santé. Cette base scientifique et professionnelle m’a naturellement conduit vers une spécialisation en <strong>data science appliquée à la santé</strong>, afin de développer des compétences plus avancées en modélisation, en visualisation de données, en apprentissage automatique et en exploitation de bases de données complexes.
+          </p>
+          <p id="about-p3">
+            📊 Je m’intéresse particulièrement à l’analyse de données biomédicales, à la bioinformatique, au machine learning, à la création de dashboards interactifs et à la valorisation de données utiles à la recherche ou à l’aide à la décision. J’apprécie les projets qui combinent rigueur méthodologique, impact concret et dimension interdisciplinaire.
+          </p>
+          <p id="about-p4">
+            💡 Aujourd’hui, je souhaite continuer à développer ce profil en contribuant à des projets ambitieux dans lesquels je peux mobiliser à la fois mes connaissances du secteur de la santé et mes compétences techniques en data science. Mon objectif est de participer à la production d’outils d’analyse fiables, de modèles pertinents et de visualisations claires permettant de mieux comprendre les données et d’en tirer une réelle valeur.
+          </p>
+        </div>
+      </section>
+
+      <section id="education" class="content-section reveal">
+        <h2 id="education-heading">Mon parcours académique</h2>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date" id="edu-date-1">2025 – 2026</div>
+            <div class="timeline-content">
+              <div class="item-icon"><i class="fas fa-user-graduate"></i></div>
+              <h3 id="edu-title-1">Master 1 Data Science en Santé (en cours)</h3>
+              <p id="edu-school-1" class="institution"><strong>Institut Lillois d’Ingénierie de la Santé (ILIS) – Université de Lille</strong></p>
+              <ul class="detail-list">
+                <li id="edu-li-1a">Analyse statistique et modélisation</li>
+                <li id="edu-li-1b">Machine learning et data mining</li>
+                <li id="edu-li-1c">Bases de données relationnelles et data management</li>
+                <li id="edu-li-1d">Visualisation de données, épidémiologie et santé publique</li>
+                <li id="edu-li-1e">Biologie, pharmacologie et projets en santé numérique</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date" id="edu-date-2">2014 – 2017</div>
+            <div class="timeline-content">
+              <div class="item-icon"><i class="fas fa-user-graduate"></i></div>
+              <h3 id="edu-title-2">Licence Professionnelle en Génie d’Imagerie Médicale et de Radiobiologie</h3>
+              <p id="edu-school-2" class="institution"><strong>École Polytechnique d’Abomey-Calavi – Université d’Abomey-Calavi</strong></p>
+              <ul class="detail-list">
+                <li id="edu-li-2a">Formation orientée imagerie médicale</li>
+                <li id="edu-li-2b">Radiobiologie</li>
+                <li id="edu-li-2c">Environnement hospitalier et pratique clinique</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="content-section reveal">
+        <h2 id="experience-heading">Mes expériences professionnelles</h2>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date" id="exp-date-1">2023 – 2025</div>
+            <div class="timeline-content">
+              <div class="item-icon"><i class="fas fa-briefcase-medical"></i></div>
+              <h3 id="exp-title-1">Échographiste</h3>
+              <p id="exp-company-1" class="institution"><strong>Centre de Santé de Houinmè & Cabinet médical AB “Santé Life Plus” – Bénin</strong></p>
+              <ul class="detail-list">
+                <li id="exp-li-1a">Réalisation des échographies gynéco-obstétricales</li>
+                <li id="exp-li-1b">Responsabilité du service d’échographie</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date" id="exp-date-2">2020 – 2022</div>
+            <div class="timeline-content">
+              <div class="item-icon"><i class="fas fa-briefcase-medical"></i></div>
+              <h3 id="exp-title-2">Manipulateur en radiologie médicale</h3>
+              <p id="exp-company-2" class="institution"><strong>Centre Hospitalier de Pneumo-Phtisiologie d’Akron – Bénin</strong></p>
+              <ul class="detail-list">
+                <li id="exp-li-2a">Réalisation des radiographies</li>
+                <li id="exp-li-2b">Traitement d’images radiographiques</li>
+                <li id="exp-li-2c">Gestion du service de radiologie</li>
+                <li id="exp-li-2d">Rédaction des rapports mensuels et annuels d’activités</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date" id="exp-date-3">2018</div>
+            <div class="timeline-content">
+              <div class="item-icon"><i class="fas fa-briefcase-medical"></i></div>
+              <h3 id="exp-title-3">Stage en radiologie</h3>
+              <p id="exp-company-3" class="institution"><strong>CHUZ d’Abomey-Calavi / Sô-Ava – Bénin</strong></p>
+              <ul class="detail-list">
+                <li id="exp-li-3a">Réalisation des radiographies</li>
+                <li id="exp-li-3b">Traitement d’images radiographiques</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="content-section reveal">
+        <h2 id="skills-heading">Mes compétences</h2>
+
+        <div class="skills-grid">
+          <div class="skill-card"><i class="fab fa-python"></i><span>Python</span></div>
+          <div class="skill-card"><i class="fab fa-r-project"></i><span>R</span></div>
+          <div class="skill-card"><i class="fas fa-file-alt"></i><span>RMarkdown</span></div>
+          <div class="skill-card"><i class="fas fa-chart-area"></i><span>Seaborn</span></div>
+          <div class="skill-card"><i class="fab fa-microsoft"></i><span>Microsoft Office</span></div>
+          <div class="skill-card"><i class="fas fa-database"></i><span>SQL</span></div>
+          <div class="skill-card"><i class="fab fa-html5"></i><span>HTML</span></div>
+          <div class="skill-card"><i class="fab fa-css3-alt"></i><span>CSS</span></div>
+          <div class="skill-card"><i class="fas fa-table"></i><span>pandas / numpy</span></div>
+          <div class="skill-card"><i class="fas fa-brain"></i><span>scikit-learn</span></div>
+          <div class="skill-card"><i class="fas fa-chart-line"></i><span>Plotly / Dash</span></div>
+          <div class="skill-card"><i class="fas fa-chart-bar"></i><span>Shiny / ggplot2</span></div>
+          <div class="skill-card"><i class="fas fa-notes-medical"></i><span>REDCap</span></div>
+          <div class="skill-card"><i class="fas fa-database"></i><span>Data management</span></div>
+          <div class="skill-card"><i class="fas fa-spider"></i><span>Web scraping</span></div>
+        </div>
+      </section>
+
+      <section id="projects" class="content-section reveal">
+        <h2 id="projects-heading">Mes projets</h2>
+
+        <div class="projects-grid">
+
+          <article class="project-card">
+            <div class="project-media">
+              <img src="dashboard.png" alt="Aperçu du dashboard d'analyse épidémiologique" class="project-image" />
+            </div>
+            <div class="project-content">
+              <h3 id="project-title-1" class="project-title">
+                Analyse des tendances épidémiologiques mondiales et facteurs associés à la mortalité liée au cancer de sein
+              </h3>
+              <ul class="detail-list">
+                <li id="project-li-1a">Collecte de données par web scraping</li>
+                <li id="project-li-1b">Intégration de bases IHME / Banque mondiale</li>
+                <li id="project-li-1c">Nettoyage des données</li>
+                <li id="project-li-1d">Développement d’un dashboard interactif</li>
+                <li id="project-li-1e">Modélisation prédictive</li>
+              </ul>
+              <div class="tags">
+                <span>Python</span>
+                <span>Web scraping</span>
+                <span>Plotly Dash</span>
+                <span>ACP</span>
+                <span>K-means</span>
+                <span>Random Forest</span>
+              </div>
+              <a href="https://dashboard-cancer-du-sein.onrender.com/" class="project-link" target="_blank" id="project-link-1">Consulter le projet</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img src="bibliometric.png" alt="Aperçu du projet d'analyse bibliométrique" class="project-image" />
+            </div>
+            <div class="project-content">
+              <h3 id="project-title-2" class="project-title">
+                Analyse bibliométrique des thèmes et tendances de recherche sur les facteurs environnementaux et le trouble du spectre de l’autisme chez l’enfant
+              </h3>
+              <ul class="detail-list">
+                <li id="project-li-2a">Analyse d’un corpus de 1 574 articles scientifiques</li>
+                <li id="project-li-2b">Exploitation de données issues de Web of Science</li>
+                <li id="project-li-2c">Utilisation de bibliometrix</li>
+                <li id="project-li-2d">Cartographie scientifique sous VOSviewer</li>
+              </ul>
+              <div class="tags">
+                <span>R</span>
+                <span>bibliometrix</span>
+                <span>VOSviewer</span>
+                <span>Bibliométrie</span>
+              </div>
+              <a href="Projet_Analyse_bibliométrique_TSA" class="project-link" target="_blank" id="project-link-2">Consulter le projet</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media project-media-placeholder">
+              <div class="project-placeholder">
+                <i class="fas fa-chart-bar"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 id="project-title-3" class="project-title">
+                Modélisation statistique des déterminants de l’épaisseur intima-media carotidienne : analyse par régression linéaire multiple
+              </h3>
+              <ul class="detail-list">
+                <li id="project-li-3a">Nettoyage des données</li>
+                <li id="project-li-3b">Analyse descriptive</li>
+                <li id="project-li-3c">Régression linéaire multiple</li>
+                <li id="project-li-3d">Sélection des variables significatives</li>
+                <li id="project-li-3e">Validation statistique du modèle</li>
+              </ul>
+              <div class="tags">
+                <span>R</span>
+                <span>RMarkdown</span>
+                <span>Régression</span>
+                <span>Statistiques</span>
+                <span>Validation</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img src="datacamp.png" alt="Aperçu du portfolio DataCamp" class="project-image project-image-contain" />
+            </div>
+            <div class="project-content">
+              <h3 id="project-title-4" class="project-title">Formations certifiantes DataCamp</h3>
+              <ul class="detail-list">
+                <li id="project-li-4a">Associate Data Scientist in Python</li>
+                <li id="project-li-4b">Data Scientist and Statistician in R</li>
+                <li id="project-li-4c">Associate Data Analyst in SQL</li>
+              </ul>
+              <div class="tags">
+                <span>Python</span>
+                <span>R</span>
+                <span>SQL</span>
+              </div>
+              <a href="https://www.datacamp.com/portfolio/hippolyteadechian" class="project-link" target="_blank" id="project-link-4">Consulter</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="contact" class="content-section reveal">
+        <h2 id="contact-heading">Contact</h2>
+
+        <div class="contact-card">
+          <p><i class="fas fa-envelope"></i> hippolyteadechian@gmail.com</p>
+          <p><i class="fas fa-phone"></i> +33 7 44 24 84 89</p>
+          <p><i class="fab fa-linkedin"></i> www.linkedin.com/in/hippolyte-adechian-899a61286</p>
+          <p><i class="fab fa-github"></i> https://github.com/Hippy24</p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p id="footer-text">© 2026 Hippolyte ADECHIAN</p>
+      </footer>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
