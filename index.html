@@ -28,10 +28,6 @@
         <button class="lang-btn active" data-lang="fr">FR</button>
         <button class="lang-btn" data-lang="en">EN</button>
       </div>
-
-      <a href="CV.pdf" class="cv-btn" download id="cv-btn-text">
-        <i class="fas fa-download"></i> Télécharger mon CV
-      </a>
     </div>
   </header>
 
@@ -68,32 +64,56 @@
 
   <main class="main-content">
 
-    <section class="hero" id="hero">
-      <div class="hero-icons-bg">
-        <i class="fas fa-dna hero-bg-icon icon-1"></i>
-        <i class="fas fa-heartbeat hero-bg-icon icon-2"></i>
-        <i class="fas fa-chart-line hero-bg-icon icon-3"></i>
-        <i class="fas fa-database hero-bg-icon icon-4"></i>
-        <i class="fas fa-laptop-code hero-bg-icon icon-5"></i>
-        <i class="fas fa-microscope hero-bg-icon icon-6"></i>
-        <i class="fas fa-notes-medical hero-bg-icon icon-7"></i>
-        <i class="fas fa-brain hero-bg-icon icon-8"></i>
-      </div>
+    <section class="hero hero-premium" id="hero">
+      <div class="hero-noise"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-orb orb-1"></div>
+      <div class="hero-orb orb-2"></div>
 
-      <div class="page-container">
-        <div class="hero-center">
-          <p class="hero-welcome animate-welcome" id="hero-welcome">Bienvenue sur ma page personnelle</p>
-          <h2 class="hero-name animate-fade-up" id="hero-name">Hippolyte ADECHIAN</h2>
-          <p class="hero-role animate-fade-up delay-1" id="hero-role">
-            Étudiant en Master 1 Data Science en Santé
-          </p>
-          <p class="hero-description animate-fade-up delay-2" id="hero-description">
-            Je transforme des données de santé complexes en informations fiables et exploitables
-            à travers la modélisation statistique, l’intelligence artificielle, le data management
-            et la visualisation interactive.
+      <div class="page-container hero-layout">
+        <div class="hero-left">
+          <div class="hero-badge animate-fade-up">
+            <span class="badge-dot"></span>
+            <span id="hero-badge">Étudiant en Master Data Science en Santé</span>
+          </div>
+
+          <h1 class="hero-name animate-fade-up delay-2" id="hero-name">
+            Hippolyte ADECHIAN
+          </h1>
+
+          <h2 class="hero-tagline animate-fade-up delay-3" id="hero-tagline">
+            Entre expertise clinique et intelligence des données
+          </h2>
+
+          <p class="hero-description animate-fade-up delay-4" id="hero-description">
+            J’exploite les données de santé pour produire des analyses robustes, des modèles utiles et des visualisations claires au service de la recherche, de la décision et de l’innovation biomédicale.
           </p>
 
-          <div class="hero-contact-links">
+          <div class="hero-actions animate-fade-up delay-5">
+            <a href="#projects" class="hero-btn primary" id="hero-projects-btn">
+              <i class="fas fa-folder-open"></i> Voir mes projets
+            </a>
+            <a href="CV.pdf" class="hero-btn secondary" download id="hero-cv-btn">
+              <i class="fas fa-download"></i> Télécharger mon CV
+            </a>
+          </div>
+
+          <div class="hero-stats animate-fade-up delay-5">
+            <div class="hero-stat-card">
+              <strong id="hero-stat-title-1">Data Science</strong>
+              <span id="hero-stat-text-1">Python • R • SQL</span>
+            </div>
+            <div class="hero-stat-card">
+              <strong id="hero-stat-title-2">Santé</strong>
+              <span id="hero-stat-text-2">Imagerie • Biomédical • Épidémiologie</span>
+            </div>
+            <div class="hero-stat-card">
+              <strong id="hero-stat-title-3">Valorisation</strong>
+              <span id="hero-stat-text-3">Dashboards • ML • Data management</span>
+            </div>
+          </div>
+
+          <div class="hero-contact-links animate-fade-up delay-5">
             <a href="mailto:hippolyteadechian@gmail.com" aria-label="Email">
               <i class="fas fa-envelope"></i>
             </a>
@@ -108,11 +128,34 @@
             </a>
           </div>
         </div>
-      </div>
 
-      <div class="hero-glow glow-1"></div>
-      <div class="hero-glow glow-2"></div>
-      <div class="hero-grid"></div>
+        <div class="hero-right">
+          <div class="hero-visual">
+            <div class="floating-card main-dashboard">
+              <div class="card-top">
+                <span class="card-chip" id="hero-card-chip">Health Data Dashboard</span>
+              </div>
+
+              <h3 id="hero-card-title">Analyse biomédicale & visualisation</h3>
+              <p id="hero-card-text">
+                Croisement entre données cliniques, modélisation statistique et exploration interactive.
+              </p>
+
+              <div class="mini-chart">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+
+              <div class="dashboard-tags">
+                <span id="hero-tag-card-1">Machine Learning</span>
+                <span id="hero-tag-card-2">Biostatistiques</span>
+                <span id="hero-tag-card-3">Dashboarding</span>
+              </div>
+            </div>
+
+            <div class="pulse-ring"></div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <div class="page-container">
@@ -144,13 +187,70 @@
               <div class="item-icon"><i class="fas fa-user-graduate"></i></div>
               <h3 id="edu-title-1">Master 1 Data Science en Santé (en cours)</h3>
               <p id="edu-school-1" class="institution"><strong>Institut Lillois d’Ingénierie de la Santé (ILIS) – Université de Lille</strong></p>
-              <ul class="detail-list">
-                <li id="edu-li-1a">Analyse statistique et modélisation</li>
-                <li id="edu-li-1b">Machine learning et data mining</li>
-                <li id="edu-li-1c">Bases de données relationnelles et data management</li>
-                <li id="edu-li-1d">Visualisation de données, épidémiologie et santé publique</li>
-                <li id="edu-li-1e">Biologie, pharmacologie et projets en santé numérique</li>
-              </ul>
+              <p id="edu-intro-1" class="education-intro">
+                Cette formation me permet d’articuler des compétences avancées en statistiques, informatique, sciences biomédicales et santé publique, dans une logique d’analyse, de modélisation et d’innovation appliquée aux données de santé.
+              </p>
+
+              <button class="toggle-courses-btn" type="button" data-target="master-courses">
+                <span id="edu-btn-master">Voir le contenu</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+
+              <div class="courses-panel" id="master-courses">
+                <div class="course-category">
+                  <h4 id="master-cat-1-title">Fondements quantitatifs et théoriques</h4>
+                  <div class="course-tags">
+                    <span id="m-course-1">Algorithmique</span>
+                    <span id="m-course-2">Algèbre et analyse</span>
+                    <span id="m-course-3">Mesure et probabilités statistiques</span>
+                    <span id="m-course-4">Statistique paramétrique</span>
+                    <span id="m-course-5">Statistique inférentielle</span>
+                    <span id="m-course-6">Modélisation statistique</span>
+                    <span id="m-course-7">Optimisation</span>
+                    <span id="m-course-8">Fouille de motifs</span>
+                  </div>
+                </div>
+
+                <div class="course-category">
+                  <h4 id="master-cat-2-title">Informatique, données et outils</h4>
+                  <div class="course-tags">
+                    <span id="m-course-9">Systèmes d’exploitation</span>
+                    <span id="m-course-10">Data management</span>
+                    <span id="m-course-11">Health Data Science Toolbox</span>
+                    <span id="m-course-12">Web scraping et web crawling</span>
+                    <span id="m-course-13">Modélisation informatique</span>
+                    <span id="m-course-14">Informatique biomédicale</span>
+                  </div>
+                </div>
+
+                <div class="course-category">
+                  <h4 id="master-cat-3-title">Sciences du vivant et biomédecine</h4>
+                  <div class="course-tags">
+                    <span id="m-course-15">Biologie moléculaire et biologie systémique</span>
+                    <span id="m-course-16">Biochimie</span>
+                    <span id="m-course-17">Biologie cellulaire</span>
+                    <span id="m-course-18">Physiologie et physiopathologie</span>
+                    <span id="m-course-19">Pharmacologie</span>
+                    <span id="m-course-20">Pharmacogénétique / Pharmacogénomique</span>
+                    <span id="m-course-21">Génomique</span>
+                    <span id="m-course-22">Transcriptomique</span>
+                    <span id="m-course-23">Protéomique</span>
+                    <span id="m-course-24">Métabolomique</span>
+                    <span id="m-course-25">Capteurs biomédicaux</span>
+                  </div>
+                </div>
+
+                <div class="course-category">
+                  <h4 id="master-cat-4-title">Santé publique, recherche et professionnalisation</h4>
+                  <div class="course-tags">
+                    <span id="m-course-26">Communication</span>
+                    <span id="m-course-27">Anglais professionnel</span>
+                    <span id="m-course-28">Formation à la recherche</span>
+                    <span id="m-course-29">Santé publique</span>
+                    <span id="m-course-30">Épidémiologie</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -160,11 +260,84 @@
               <div class="item-icon"><i class="fas fa-user-graduate"></i></div>
               <h3 id="edu-title-2">Licence Professionnelle en Génie d’Imagerie Médicale et de Radiobiologie</h3>
               <p id="edu-school-2" class="institution"><strong>École Polytechnique d’Abomey-Calavi – Université d’Abomey-Calavi</strong></p>
-              <ul class="detail-list">
-                <li id="edu-li-2a">Formation orientée imagerie médicale</li>
-                <li id="edu-li-2b">Radiobiologie</li>
-                <li id="edu-li-2c">Environnement hospitalier et pratique clinique</li>
-              </ul>
+              <p id="edu-intro-2" class="education-intro">
+                Cette formation pluridisciplinaire m’a apporté une base scientifique solide en anatomie, imagerie, radiologie, biologie, physique et pratique clinique, tout en me préparant aux exigences techniques et humaines du milieu hospitalier.
+              </p>
+
+              <button class="toggle-courses-btn" type="button" data-target="licence-courses">
+                <span id="edu-btn-licence">Voir le contenu</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+
+              <div class="courses-panel" id="licence-courses">
+                <div class="course-category">
+                  <h4 id="lic-cat-1-title">Sciences fondamentales</h4>
+                  <div class="course-tags">
+                    <span id="l-course-1">Mathématiques</span>
+                    <span id="l-course-2">Physique</span>
+                    <span id="l-course-3">Chimie générale</span>
+                    <span id="l-course-4">Chimie organique</span>
+                    <span id="l-course-5">Biochimie structurale</span>
+                    <span id="l-course-6">Biologie cellulaire</span>
+                    <span id="l-course-7">Microbiologie</span>
+                    <span id="l-course-8">Immunologie</span>
+                    <span id="l-course-9">Biologie moléculaire</span>
+                    <span id="l-course-10">Pharmacologie</span>
+                    <span id="l-course-11">Radiobiologie et radioprotection</span>
+                  </div>
+                </div>
+
+                <div class="course-category">
+                  <h4 id="lic-cat-2-title">Anatomie, physiologie et disciplines biomédicales</h4>
+                  <div class="course-tags">
+                    <span id="l-course-12">Anatomie : ostéologie, arthrologie et myologie</span>
+                    <span id="l-course-13">Splanchnologie</span>
+                    <span id="l-course-14">Embryologie</span>
+                    <span id="l-course-15">Physiologie humaine</span>
+                    <span id="l-course-16">Anatomie radiologique : tronc, viscères et crâne</span>
+                    <span id="l-course-17">Neuroanatomie</span>
+                    <span id="l-course-18">Sémiologie médicale</span>
+                    <span id="l-course-19">Sémiologie chirurgicale</span>
+                    <span id="l-course-20">Sémiologie radiologique</span>
+                  </div>
+                </div>
+
+                <div class="course-category">
+                  <h4 id="lic-cat-3-title">Imagerie, radiologie et techniques professionnelles</h4>
+                  <div class="course-tags">
+                    <span id="l-course-21">Appareillage</span>
+                    <span id="l-course-22">Enregistrement d’images</span>
+                    <span id="l-course-23">Techniques instrumentales</span>
+                    <span id="l-course-24">Techniques radiologiques</span>
+                    <span id="l-course-25">Techniques radiodiagnostiques</span>
+                    <span id="l-course-26">Échographie gynéco-obstétricale</span>
+                    <span id="l-course-27">Biophysique de l’imagerie</span>
+                    <span id="l-course-28">Physique électronique</span>
+                    <span id="l-course-29">Informatique médicale</span>
+                  </div>
+                </div>
+
+                <div class="course-category">
+                  <h4 id="lic-cat-4-title">Statistiques, informatique et communication</h4>
+                  <div class="course-tags">
+                    <span id="l-course-30">Initiation à l’informatique</span>
+                    <span id="l-course-31">Biostatistique</span>
+                    <span id="l-course-32">Anglais technique</span>
+                    <span id="l-course-33">Techniques d’expression et méthodes de communication</span>
+                  </div>
+                </div>
+
+                <div class="course-category">
+                  <h4 id="lic-cat-5-title">Santé, éthique et environnement professionnel</h4>
+                  <div class="course-tags">
+                    <span id="l-course-34">Santé publique</span>
+                    <span id="l-course-35">Déontologie médicale</span>
+                    <span id="l-course-36">Législation du travail</span>
+                    <span id="l-course-37">Soins infirmiers</span>
+                    <span id="l-course-38">Sport</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -245,14 +418,18 @@
 
         <div class="projects-grid">
 
-          <article class="project-card">
+          <article class="project-card premium-project-card">
             <div class="project-media">
               <img src="dashboard.png" alt="Aperçu du dashboard d'analyse épidémiologique" class="project-image" />
             </div>
             <div class="project-content">
+              <div class="project-topline">Projet data santé</div>
               <h3 id="project-title-1" class="project-title">
                 Analyse des tendances épidémiologiques mondiales et facteurs associés à la mortalité liée au cancer de sein
               </h3>
+              <p class="project-summary">
+                Projet combinant collecte, structuration, exploration et valorisation visuelle de données de santé à grande échelle.
+              </p>
               <ul class="detail-list">
                 <li id="project-li-1a">Collecte de données par web scraping</li>
                 <li id="project-li-1b">Intégration de bases IHME / Banque mondiale</li>
@@ -272,14 +449,18 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card premium-project-card">
             <div class="project-media">
               <img src="bibliometric.png" alt="Aperçu du projet d'analyse bibliométrique" class="project-image" />
             </div>
             <div class="project-content">
+              <div class="project-topline">Projet de recherche</div>
               <h3 id="project-title-2" class="project-title">
                 Analyse bibliométrique des thèmes et tendances de recherche sur les facteurs environnementaux et le trouble du spectre de l’autisme chez l’enfant
               </h3>
+              <p class="project-summary">
+                Étude de cartographie scientifique visant à identifier les dynamiques de publication, thématiques et réseaux de recherche.
+              </p>
               <ul class="detail-list">
                 <li id="project-li-2a">Analyse d’un corpus de 1 574 articles scientifiques</li>
                 <li id="project-li-2b">Exploitation de données issues de Web of Science</li>
@@ -292,20 +473,24 @@
                 <span>VOSviewer</span>
                 <span>Bibliométrie</span>
               </div>
-              <a href="Projet_Analyse_bibliométrique_TSA.pdf" class="project-link" target="_blank" id="project-link-2">Consulter le projet</a>
+              <a href="Projet_Analyse_bibliométrique_TSA" class="project-link" target="_blank" id="project-link-2">Consulter le projet</a>
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card premium-project-card">
             <div class="project-media project-media-placeholder">
               <div class="project-placeholder">
                 <i class="fas fa-chart-bar"></i>
               </div>
             </div>
             <div class="project-content">
+              <div class="project-topline">Projet statistique</div>
               <h3 id="project-title-3" class="project-title">
                 Modélisation statistique des déterminants de l’épaisseur intima-media carotidienne : analyse par régression linéaire multiple
               </h3>
+              <p class="project-summary">
+                Travail d’analyse visant à identifier, tester et interpréter les facteurs explicatifs d’un indicateur biomédical.
+              </p>
               <ul class="detail-list">
                 <li id="project-li-3a">Nettoyage des données</li>
                 <li id="project-li-3b">Analyse descriptive</li>
@@ -323,12 +508,16 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card premium-project-card">
             <div class="project-media">
               <img src="datacamp.png" alt="Aperçu du portfolio DataCamp" class="project-image project-image-contain" />
             </div>
             <div class="project-content">
+              <div class="project-topline">Formations certifiantes</div>
               <h3 id="project-title-4" class="project-title">Formations certifiantes DataCamp</h3>
+              <p class="project-summary">
+                Parcours structurés renforçant mes compétences techniques en analyse de données, programmation statistique et requêtage.
+              </p>
               <ul class="detail-list">
                 <li id="project-li-4a">Associate Data Scientist in Python</li>
                 <li id="project-li-4b">Data Scientist and Statistician in R</li>
