@@ -5,16 +5,16 @@
 }
 
 :root {
-  --bg: #0b1220;
-  --bg-soft: #111827;
-  --card: #1e293b;
+  --bg: #16181d;
+  --bg-soft: #1d2128;
+  --card: #242a33;
   --text: #f8fafc;
-  --muted: #cbd5e1;
+  --muted: #c9d1d9;
   --accent: #ba7413;
   --accent-light: #e6a84f;
-  --blue-light: #7dd3fc;
+  --blue-light: #8ab4d6;
   --line: rgba(255, 255, 255, 0.05);
-  --shadow: 0 8px 20px rgba(0, 0, 0, 0.20);
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
   --topbar-height: 88px;
   --hero-radius: 18px;
 }
@@ -26,9 +26,9 @@ html {
 body {
   font-family: Arial, sans-serif;
   background:
-    radial-gradient(circle at top right, rgba(186, 116, 19, 0.08), transparent 22%),
-    radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.08), transparent 25%),
-    var(--bg);
+    radial-gradient(circle at top right, rgba(186, 116, 19, 0.08), transparent 20%),
+    radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.035), transparent 24%),
+    linear-gradient(135deg, #15171c 0%, #1a1d23 35%, #20242b 100%);
   color: var(--text);
   min-height: 100vh;
 }
@@ -41,9 +41,9 @@ body {
 .topbar {
   width: 100%;
   min-height: var(--topbar-height);
-  background: rgba(17, 24, 39, 0.90);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--line);
+  background: rgba(24, 27, 33, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   padding: 16px 28px;
   position: fixed;
   top: 0;
@@ -460,7 +460,7 @@ body {
 .orb-1 {
   width: 260px;
   height: 260px;
-  background: rgba(186, 116, 19, 0.7);
+  background: rgba(186, 116, 19, 0.38);
   top: 10%;
   left: 5%;
 }
@@ -468,7 +468,7 @@ body {
 .orb-2 {
   width: 280px;
   height: 280px;
-  background: rgba(37, 99, 235, 0.65);
+  background: rgba(210, 210, 210, 0.10);
   bottom: 8%;
   right: 8%;
 }
