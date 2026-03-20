@@ -121,8 +121,6 @@ const translations = {
     "edu-title-2": "Licence Professionnelle en Génie d’Imagerie Médicale et de Radiobiologie",
     "edu-intro-1": "Cette formation me permet d’articuler des compétences avancées en statistiques, informatique, sciences biomédicales et santé publique, dans une logique d’analyse, de modélisation et d’innovation appliquée aux données de santé.",
     "edu-intro-2": "Cette formation pluridisciplinaire m’a apporté une base scientifique solide en anatomie, imagerie, radiologie, biologie, physique et pratique clinique, tout en me préparant aux exigences techniques et humaines du milieu hospitalier.",
-    "edu-btn-master": "Voir le contenu",
-    "edu-btn-licence": "Voir le contenu",
 
     "master-cat-1-title": "Fondements quantitatifs et théoriques",
     "master-cat-2-title": "Informatique, données et outils",
@@ -207,9 +205,9 @@ const translations = {
     "l-course-38": "Sport",
 
     "experience-heading": "Mes expériences professionnelles",
+
     "exp-title-1": "Échographiste",
     "exp-intro-1": "Au cours de mes années d’exercice au sein de ces deux structures, j’ai contribué de manière active au suivi, à l’évaluation échographique et à l’orientation diagnostique des patientes, aussi bien dans le cadre de la grossesse que dans celui des pathologies gynécologiques et des problématiques liées à la fertilité.",
-    "exp-btn-1": "Lire la suite",
     "exp-subtitle-1": "Pratique clinique",
     "exp-subtitle-2": "Accompagnement des patientes",
     "exp-li-1a": "Réalisation d’échographies gynéco-obstétricales, c’est-à-dire d’examens d’imagerie médicale utilisant les ultrasons pour explorer l’appareil reproducteur féminin et assurer le suivi évolutif de la grossesse.",
@@ -234,10 +232,25 @@ const translations = {
     "exp-path-14": "Kystes endométriosiques",
 
     "exp-title-2": "Manipulateur en radiologie médicale",
-    "exp-li-2a": "Réalisation des radiographies",
-    "exp-li-2b": "Traitement d’images radiographiques",
-    "exp-li-2c": "Gestion du service de radiologie",
-    "exp-li-2d": "Rédaction des rapports mensuels et annuels d’activités",
+    "exp-intro-2": "Pendant trois années au sein de ce centre hospitalier spécialisé dans la prise en charge des affections respiratoires, j’ai occupé des fonctions de responsabilité au service de radiologie, en contribuant au diagnostic, au suivi des patients et à l’organisation du service dans un cadre institutionnel lié au Programme National de Lutte contre la Tuberculose et au Fonds mondial.",
+    "exp-subtitle-3": "Responsabilités principales",
+    "exp-subtitle-4": "Organisation et encadrement",
+    "exp-li-2a": "Réalisation de radiographies thoraciques et pulmonaires pour le diagnostic et le suivi des affections respiratoires.",
+    "exp-li-2b": "Contribution à la prise en charge des patients atteints de pathologies pulmonaires en collaboration avec les médecins et spécialistes.",
+    "exp-li-2c": "Supervision du bon fonctionnement du service de radiologie et du bon déroulement des activités quotidiennes.",
+    "exp-li-2d": "Rédaction mensuelle des rapports d’activité dans le cadre du suivi institutionnel du service.",
+    "exp-li-2e": "Encadrement de stagiaires venus mettre en pratique leurs connaissances théoriques.",
+    "exp-li-2f": "Participation à l’exploration radiographique de pathologies non pulmonaires, notamment en contexte traumatique et ostéo-articulaire.",
+    "exp-path-title-3": "Pathologies respiratoires prises en charge",
+    "exp-path-title-4": "Autres explorations radiographiques",
+    "exp-path-15": "Tuberculose",
+    "exp-path-16": "Pleurésie",
+    "exp-path-17": "Syndromes bronchiques",
+    "exp-path-18": "Bronchopneumopathie chronique obstructive",
+    "exp-path-19": "Syndrome d’épanchement pleural",
+    "exp-path-20": "Traumatismes / accidents de la voie publique (AVP)",
+    "exp-path-21": "Arthrose",
+    "exp-path-22": "Explorations abdominales",
 
     "exp-title-3": "Stage en radiologie",
     "exp-li-3a": "Réalisation des radiographies",
@@ -325,8 +338,6 @@ const translations = {
     "edu-title-2": "Professional Bachelor’s Degree in Medical Imaging Engineering and Radiobiology",
     "edu-intro-1": "This program helps me combine advanced skills in statistics, computing, biomedical sciences and public health within a framework focused on analysis, modeling and innovation in health data.",
     "edu-intro-2": "This multidisciplinary program provided me with a strong scientific foundation in anatomy, imaging, radiology, biology, physics and clinical practice, while preparing me for the technical and human demands of the hospital environment.",
-    "edu-btn-master": "View content",
-    "edu-btn-licence": "View content",
 
     "master-cat-1-title": "Quantitative and theoretical foundations",
     "master-cat-2-title": "Computing, data and tools",
@@ -411,9 +422,9 @@ const translations = {
     "l-course-38": "Sports",
 
     "experience-heading": "My professional experience",
+
     "exp-title-1": "Ultrasound Technician",
     "exp-intro-1": "During my years of practice within these two healthcare facilities, I played an active role in patient follow-up, ultrasound assessment and diagnostic orientation, both in pregnancy care and in the management of gynecological conditions and fertility-related concerns.",
-    "exp-btn-1": "Read more",
     "exp-subtitle-1": "Clinical practice",
     "exp-subtitle-2": "Patient support",
     "exp-li-1a": "Performed gynecological and obstetrical ultrasound examinations, that is, medical imaging procedures using ultrasound to explore the female reproductive system and monitor pregnancy progression.",
@@ -438,10 +449,25 @@ const translations = {
     "exp-path-14": "Endometriotic cysts",
 
     "exp-title-2": "Radiologic Technologist",
-    "exp-li-2a": "Performed radiographic imaging",
-    "exp-li-2b": "Processed radiographic images",
-    "exp-li-2c": "Managed the radiology department",
-    "exp-li-2d": "Prepared monthly and annual activity reports",
+    "exp-intro-2": "For three years within this hospital center specialized in the management of respiratory diseases, I held responsibilities in the radiology department, contributing to diagnosis, patient follow-up and service organization within an institutional framework linked to the National Tuberculosis Control Program and the Global Fund.",
+    "exp-subtitle-3": "Main responsibilities",
+    "exp-subtitle-4": "Organization and supervision",
+    "exp-li-2a": "Performed chest and pulmonary radiographs for the diagnosis and follow-up of respiratory diseases.",
+    "exp-li-2b": "Contributed to the care of patients with pulmonary conditions in collaboration with physicians and specialists.",
+    "exp-li-2c": "Supervised the proper functioning of the radiology department and the smooth running of daily activities.",
+    "exp-li-2d": "Prepared monthly activity reports as part of the institutional monitoring of the department.",
+    "exp-li-2e": "Supervised trainees applying their theoretical knowledge in practice.",
+    "exp-li-2f": "Contributed to radiographic exploration of non-pulmonary pathologies, especially in traumatic and musculoskeletal contexts.",
+    "exp-path-title-3": "Respiratory conditions managed",
+    "exp-path-title-4": "Other radiographic explorations",
+    "exp-path-15": "Tuberculosis",
+    "exp-path-16": "Pleurisy",
+    "exp-path-17": "Bronchial syndromes",
+    "exp-path-18": "Chronic obstructive pulmonary disease",
+    "exp-path-19": "Pleural effusion syndrome",
+    "exp-path-20": "Trauma / road traffic accidents",
+    "exp-path-21": "Osteoarthritis",
+    "exp-path-22": "Abdominal explorations",
 
     "exp-title-3": "Radiology Internship",
     "exp-li-3a": "Performed radiographic imaging",
@@ -487,7 +513,7 @@ function updateCourseButtonLabels(lang) {
     const targetId = button.dataset.target;
     const panel = document.getElementById(targetId);
     const span = button.querySelector(".btn-label");
-    const isOpen = panel.classList.contains("open");
+    const isOpen = panel && panel.classList.contains("open");
 
     span.textContent = isOpen
       ? (lang === "fr" ? "Masquer le contenu" : "Hide content")
@@ -500,7 +526,7 @@ function updateExperienceButtonLabels(lang) {
     const targetId = button.dataset.target;
     const panel = document.getElementById(targetId);
     const span = button.querySelector(".btn-label");
-    const isOpen = panel.classList.contains("open");
+    const isOpen = panel && panel.classList.contains("open");
 
     span.textContent = isOpen
       ? (lang === "fr" ? "Réduire" : "Show less")
