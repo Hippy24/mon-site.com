@@ -97,7 +97,6 @@ const translations = {
     "nav-contact-mobile": "Contact",
 
     "cv-btn-text-mobile": '<i class="fas fa-download"></i> Télécharger mon CV',
-    "cv-btn-text-desktop": '<i class="fas fa-download"></i> Télécharger mon CV',
     "hero-cv-btn": '<i class="fas fa-download"></i> Télécharger mon CV',
 
     "hero-badge": "Étudiant en Master Data Science en Santé",
@@ -266,32 +265,20 @@ const translations = {
 
     "skills-heading": "Mes compétences",
     "projects-heading": "Mes projets",
+
     "project-title-1": "Analyse des tendances épidémiologiques mondiales et facteurs associés à la mortalité liée au cancer de sein",
-    "project-li-1a": "Collecte de données par web scraping",
-    "project-li-1b": "Intégration de bases IHME / Banque mondiale",
-    "project-li-1c": "Nettoyage des données",
-    "project-li-1d": "Développement d’un dashboard interactif",
-    "project-li-1e": "Modélisation prédictive",
+    "project-p-1": "Ce projet combine la collecte de données par web scraping, l’intégration de bases issues notamment de l’IHME et de la Banque mondiale, le nettoyage des données, le développement d’un dashboard interactif ainsi qu’une phase de modélisation prédictive afin de mieux comprendre les tendances mondiales et les facteurs associés à la mortalité liée au cancer du sein.",
     "project-link-1": "Consulter le projet",
 
     "project-title-2": "Analyse bibliométrique des thèmes et tendances de recherche sur les facteurs environnementaux et le trouble du spectre de l’autisme chez l’enfant",
-    "project-li-2a": "Analyse d’un corpus de 1 574 articles scientifiques",
-    "project-li-2b": "Exploitation de données issues de Web of Science",
-    "project-li-2c": "Utilisation de bibliometrix",
-    "project-li-2d": "Cartographie scientifique sous VOSviewer",
+    "project-p-2": "Cette étude repose sur l’analyse d’un corpus de 1 574 articles scientifiques issus de Web of Science. Elle mobilise les outils bibliometrix et VOSviewer afin d’identifier les dynamiques de publication, les thématiques dominantes, les réseaux de recherche et les grandes tendances scientifiques autour des facteurs environnementaux liés au trouble du spectre de l’autisme chez l’enfant.",
     "project-link-2": "Consulter le projet",
 
     "project-title-3": "Modélisation statistique des déterminants de l’épaisseur intima-media carotidienne : analyse par régression linéaire multiple",
-    "project-li-3a": "Nettoyage des données",
-    "project-li-3b": "Analyse descriptive",
-    "project-li-3c": "Régression linéaire multiple",
-    "project-li-3d": "Sélection des variables significatives",
-    "project-li-3e": "Validation statistique du modèle",
+    "project-p-3": "Ce travail vise à identifier et interpréter les facteurs explicatifs d’un indicateur biomédical à partir d’un processus rigoureux incluant le nettoyage des données, l’analyse descriptive, la mise en place d’une régression linéaire multiple, la sélection des variables significatives et la validation statistique du modèle final.",
 
     "project-title-4": "Formations certifiantes DataCamp",
-    "project-li-4a": "Associate Data Scientist in Python",
-    "project-li-4b": "Data Scientist and Statistician in R",
-    "project-li-4c": "Associate Data Analyst in SQL",
+    "project-p-4": "Ce parcours de formations certifiantes m’a permis de renforcer mes compétences techniques en analyse de données, en programmation statistique et en requêtage, à travers des certifications structurées telles que Associate Data Scientist in Python, Data Scientist and Statistician in R et Associate Data Analyst in SQL.",
     "project-link-4": "Consulter",
 
     "contact-heading": "Contact",
@@ -314,7 +301,6 @@ const translations = {
     "nav-contact-mobile": "Contact",
 
     "cv-btn-text-mobile": '<i class="fas fa-download"></i> Download my CV',
-    "cv-btn-text-desktop": '<i class="fas fa-download"></i> Download my CV',
     "hero-cv-btn": '<i class="fas fa-download"></i> Download my CV',
 
     "hero-badge": "Master’s Student in Health Data Science",
@@ -483,32 +469,20 @@ const translations = {
 
     "skills-heading": "My skills",
     "projects-heading": "My projects",
+
     "project-title-1": "Analysis of global epidemiological trends and factors associated with breast cancer mortality",
-    "project-li-1a": "Data collection through web scraping",
-    "project-li-1b": "Integration of IHME / World Bank datasets",
-    "project-li-1c": "Data cleaning",
-    "project-li-1d": "Development of an interactive dashboard",
-    "project-li-1e": "Predictive modeling",
+    "project-p-1": "This project combines data collection through web scraping, the integration of datasets notably from IHME and the World Bank, data cleaning, the development of an interactive dashboard, and a predictive modeling phase to better understand global trends and the factors associated with breast cancer mortality.",
     "project-link-1": "View project",
 
     "project-title-2": "Bibliometric analysis of research themes and trends on environmental factors and autism spectrum disorder in children",
-    "project-li-2a": "Analysis of a corpus of 1,574 scientific articles",
-    "project-li-2b": "Use of Web of Science data",
-    "project-li-2c": "Use of bibliometrix",
-    "project-li-2d": "Scientific mapping with VOSviewer",
+    "project-p-2": "This study is based on the analysis of a corpus of 1,574 scientific articles from Web of Science. It uses bibliometrix and VOSviewer to identify publication dynamics, dominant themes, research networks, and the major scientific trends related to environmental factors associated with autism spectrum disorder in children.",
     "project-link-2": "View project",
 
     "project-title-3": "Statistical modeling of determinants of carotid intima-media thickness: multiple linear regression analysis",
-    "project-li-3a": "Data cleaning",
-    "project-li-3b": "Descriptive analysis",
-    "project-li-3c": "Multiple linear regression",
-    "project-li-3d": "Selection of significant variables",
-    "project-li-3e": "Statistical model validation",
+    "project-p-3": "This work aims to identify and interpret the explanatory factors of a biomedical indicator through a rigorous process including data cleaning, descriptive analysis, multiple linear regression, selection of significant variables, and statistical validation of the final model.",
 
     "project-title-4": "Certified DataCamp training programs",
-    "project-li-4a": "Associate Data Scientist in Python",
-    "project-li-4b": "Data Scientist and Statistician in R",
-    "project-li-4c": "Associate Data Analyst in SQL",
+    "project-p-4": "This set of certified training programs helped me strengthen my technical skills in data analysis, statistical programming, and querying through structured certifications such as Associate Data Scientist in Python, Data Scientist and Statistician in R, and Associate Data Analyst in SQL.",
     "project-link-4": "View",
 
     "contact-heading": "Contact",
