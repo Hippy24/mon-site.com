@@ -516,21 +516,32 @@ body {
   margin-right: 10px;
 }
 
+.about-content,
+.contact-content {
+  padding: 0;
+}
+
+.about-content p,
+.contact-content p {
+  color: #e2e8f0;
+  line-height: 1.95;
+  margin-bottom: 16px;
+}
+
+.contact-content i {
+  color: var(--accent-light);
+  margin-right: 10px;
+}
+
 /* TIMELINE */
 .premium-timeline {
   position: relative;
   margin-top: 20px;
-  padding-left: 38px;
+  padding-left: 0;
 }
 
 .premium-timeline::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 11px;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(230,168,79,0.55), rgba(255,255,255,0.08));
+  display: none;
 }
 
 .timeline-item {
@@ -539,14 +550,7 @@ body {
 }
 
 .timeline-marker {
-  position: absolute;
-  left: -31px;
-  top: 8px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--accent-light);
-  box-shadow: 0 0 0 6px rgba(230, 168, 79, 0.12);
+  display: none;
 }
 
 .timeline-date {
@@ -891,6 +895,12 @@ body {
   margin-bottom: 8px;
 }
 
+.project-description {
+  color: #dce6f5;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -933,14 +943,12 @@ body {
 }
 
 /* REVEAL */
-/* Correction : les sections sont visibles par défaut */
 .reveal {
   opacity: 1;
   transform: translateY(0);
   transition: opacity 0.75s ease, transform 0.75s ease;
 }
 
-/* Animation activée seulement si JS ajoute la classe au body */
 .js-enabled .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -1194,11 +1202,7 @@ body {
   }
 
   .premium-timeline {
-    padding-left: 28px;
-  }
-
-  .timeline-marker {
-    left: -22px;
+    padding-left: 0;
   }
 }
 
