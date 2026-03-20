@@ -76,7 +76,7 @@
             <span id="hero-badge">Étudiant en Master Data Science en Santé</span>
           </div>
 
-          <h1 class="hero-name animate-fade-up delay-2" id="hero-name">
+          <h1 class="hero-name animate-fade-up delay-2">
             Hippolyte ADECHIAN
           </h1>
 
@@ -191,7 +191,7 @@
               </p>
 
               <button class="toggle-courses-btn" type="button" data-target="master-courses">
-                <span id="edu-btn-master">Voir le contenu</span>
+                <span class="btn-label" id="edu-btn-master">Voir le contenu</span>
                 <i class="fas fa-chevron-down"></i>
               </button>
 
@@ -265,7 +265,7 @@
               </p>
 
               <button class="toggle-courses-btn" type="button" data-target="licence-courses">
-                <span id="edu-btn-licence">Voir le contenu</span>
+                <span class="btn-label" id="edu-btn-licence">Voir le contenu</span>
                 <i class="fas fa-chevron-down"></i>
               </button>
 
@@ -358,50 +358,61 @@
                 Au cours de mes années d’exercice au sein de ces deux structures, j’ai contribué de manière active au suivi, à l’évaluation échographique et à l’orientation diagnostique des patientes, aussi bien dans le cadre de la grossesse que dans celui des pathologies gynécologiques et des problématiques liées à la fertilité.
               </p>
 
-              <button class="toggle-experience-btn" type="button" data-target="echographiste-details">
-                <span id="exp-btn-1">Lire la suite</span>
+              <button class="toggle-experience-btn" type="button" data-target="echographiste-details" aria-expanded="false">
+                <span class="btn-label" id="exp-btn-1">Lire la suite</span>
                 <i class="fas fa-chevron-down"></i>
               </button>
 
               <div class="experience-panel" id="echographiste-details">
-                <ul class="detail-list">
-                  <li id="exp-li-1a">
-                    Réalisation d’échographies gynéco-obstétricales, c’est-à-dire d’examens d’imagerie médicale utilisant les ultrasons pour explorer l’appareil reproducteur féminin et assurer le suivi évolutif de la grossesse.
-                  </li>
-                  <li id="exp-li-1b">
-                    Participation au suivi et à la prise en charge des femmes enceintes depuis le début de la grossesse jusqu’à terme, dans une logique de surveillance, d’évaluation et d’aide à la décision clinique.
-                  </li>
-                  <li id="exp-li-1c">
-                    Contribution à la prise en charge de femmes exprimant un désir de maternité, ainsi que de patientes confrontées à des situations d’infertilité primaire ou secondaire.
-                  </li>
-                  <li id="exp-li-1d">
-                    Appui au repérage précoce, à l’analyse et à l’orientation diagnostique de diverses anomalies obstétricales et pathologies gynécologiques rencontrées en pratique courante.
-                  </li>
-                </ul>
+                <div class="experience-highlight-grid">
+                  <div class="experience-highlight-card">
+                    <h4 id="exp-subtitle-1">Pratique clinique</h4>
+                    <ul class="detail-list compact">
+                      <li id="exp-li-1a">
+                        Réalisation d’échographies gynéco-obstétricales, c’est-à-dire d’examens d’imagerie médicale utilisant les ultrasons pour explorer l’appareil reproducteur féminin et assurer le suivi évolutif de la grossesse.
+                      </li>
+                      <li id="exp-li-1b">
+                        Participation au suivi et à la prise en charge des femmes enceintes depuis le début de la grossesse jusqu’à terme, dans une logique de surveillance, d’évaluation et d’aide à la décision clinique.
+                      </li>
+                    </ul>
+                  </div>
 
-                <div class="course-category">
-                  <h4 id="exp-path-title-1">Pathologies rencontrées – Grossesse</h4>
-                  <div class="course-tags">
-                    <span id="exp-path-1">Fausse couche</span>
-                    <span id="exp-path-2">Grossesse môlaire</span>
-                    <span id="exp-path-3">Œuf clair</span>
-                    <span id="exp-path-4">Hydrocéphalie fœtale</span>
-                    <span id="exp-path-5">Anencéphalie fœtale</span>
-                    <span id="exp-path-6">Kyste rénal fœtal</span>
-                    <span id="exp-path-7">Omphalocèle</span>
-                    <span id="exp-path-8">Hydramnios / Polyhydramnios</span>
-                    <span id="exp-path-9">Oligoamnios</span>
+                  <div class="experience-highlight-card">
+                    <h4 id="exp-subtitle-2">Accompagnement des patientes</h4>
+                    <ul class="detail-list compact">
+                      <li id="exp-li-1c">
+                        Contribution à la prise en charge de femmes exprimant un désir de maternité, ainsi que de patientes confrontées à des situations d’infertilité primaire ou secondaire.
+                      </li>
+                      <li id="exp-li-1d">
+                        Appui au repérage précoce, à l’analyse et à l’orientation diagnostique de diverses anomalies obstétricales et pathologies gynécologiques rencontrées en pratique courante.
+                      </li>
+                    </ul>
                   </div>
                 </div>
 
-                <div class="course-category">
+                <div class="pathology-block">
+                  <h4 id="exp-path-title-1">Pathologies rencontrées – Grossesse</h4>
+                  <div class="pathology-grid">
+                    <div class="pathology-card" id="exp-path-1">Fausse couche</div>
+                    <div class="pathology-card" id="exp-path-2">Grossesse môlaire</div>
+                    <div class="pathology-card" id="exp-path-3">Œuf clair</div>
+                    <div class="pathology-card" id="exp-path-4">Hydrocéphalie fœtale</div>
+                    <div class="pathology-card" id="exp-path-5">Anencéphalie fœtale</div>
+                    <div class="pathology-card" id="exp-path-6">Kyste rénal fœtal</div>
+                    <div class="pathology-card" id="exp-path-7">Omphalocèle</div>
+                    <div class="pathology-card" id="exp-path-8">Hydramnios / Polyhydramnios</div>
+                    <div class="pathology-card" id="exp-path-9">Oligoamnios</div>
+                  </div>
+                </div>
+
+                <div class="pathology-block">
                   <h4 id="exp-path-title-2">Pathologies rencontrées – Système reproducteur</h4>
-                  <div class="course-tags">
-                    <span id="exp-path-10">Myomes utérins</span>
-                    <span id="exp-path-11">Kystes ovariens organiques</span>
-                    <span id="exp-path-12">Kystes ovariens fonctionnels</span>
-                    <span id="exp-path-13">Dystrophies ovariennes / syndrome des ovaires polykystiques</span>
-                    <span id="exp-path-14">Kystes endométriosiques</span>
+                  <div class="pathology-grid">
+                    <div class="pathology-card" id="exp-path-10">Myomes utérins</div>
+                    <div class="pathology-card" id="exp-path-11">Kystes ovariens organiques</div>
+                    <div class="pathology-card" id="exp-path-12">Kystes ovariens fonctionnels</div>
+                    <div class="pathology-card" id="exp-path-13">Dystrophies ovariennes / syndrome des ovaires polykystiques</div>
+                    <div class="pathology-card" id="exp-path-14">Kystes endométriosiques</div>
                   </div>
                 </div>
               </div>
