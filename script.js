@@ -6,6 +6,8 @@ const navLinks = document.querySelectorAll(".nav-link");
 const langButtons = document.querySelectorAll(".lang-btn");
 const toggleButtons = document.querySelectorAll(".toggle-courses-btn");
 const experienceToggleButtons = document.querySelectorAll(".toggle-experience-btn");
+const sections = document.querySelectorAll("section[id]");
+const reveals = document.querySelectorAll(".reveal");
 
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
@@ -39,8 +41,6 @@ navLinks.forEach(link => {
   });
 });
 
-const sections = document.querySelectorAll("section[id]");
-
 function activateMenuOnScroll() {
   const scrollY = window.pageYOffset;
 
@@ -58,8 +58,6 @@ function activateMenuOnScroll() {
 }
 
 window.addEventListener("scroll", activateMenuOnScroll);
-
-const reveals = document.querySelectorAll(".reveal");
 
 function revealOnScroll() {
   const windowHeight = window.innerHeight;
@@ -123,6 +121,8 @@ const translations = {
     "edu-title-2": "Licence Professionnelle en Génie d’Imagerie Médicale et de Radiobiologie",
     "edu-intro-1": "Cette formation me permet d’articuler des compétences avancées en statistiques, informatique, sciences biomédicales et santé publique, dans une logique d’analyse, de modélisation et d’innovation appliquée aux données de santé.",
     "edu-intro-2": "Cette formation pluridisciplinaire m’a apporté une base scientifique solide en anatomie, imagerie, radiologie, biologie, physique et pratique clinique, tout en me préparant aux exigences techniques et humaines du milieu hospitalier.",
+    "edu-btn-master": "Voir le contenu",
+    "edu-btn-licence": "Voir le contenu",
 
     "master-cat-1-title": "Fondements quantitatifs et théoriques",
     "master-cat-2-title": "Informatique, données et outils",
@@ -210,6 +210,8 @@ const translations = {
     "exp-title-1": "Échographiste",
     "exp-intro-1": "Au cours de mes années d’exercice au sein de ces deux structures, j’ai contribué de manière active au suivi, à l’évaluation échographique et à l’orientation diagnostique des patientes, aussi bien dans le cadre de la grossesse que dans celui des pathologies gynécologiques et des problématiques liées à la fertilité.",
     "exp-btn-1": "Lire la suite",
+    "exp-subtitle-1": "Pratique clinique",
+    "exp-subtitle-2": "Accompagnement des patientes",
     "exp-li-1a": "Réalisation d’échographies gynéco-obstétricales, c’est-à-dire d’examens d’imagerie médicale utilisant les ultrasons pour explorer l’appareil reproducteur féminin et assurer le suivi évolutif de la grossesse.",
     "exp-li-1b": "Participation au suivi et à la prise en charge des femmes enceintes depuis le début de la grossesse jusqu’à terme, dans une logique de surveillance, d’évaluation et d’aide à la décision clinique.",
     "exp-li-1c": "Contribution à la prise en charge de femmes exprimant un désir de maternité, ainsi que de patientes confrontées à des situations d’infertilité primaire ou secondaire.",
@@ -323,6 +325,8 @@ const translations = {
     "edu-title-2": "Professional Bachelor’s Degree in Medical Imaging Engineering and Radiobiology",
     "edu-intro-1": "This program helps me combine advanced skills in statistics, computing, biomedical sciences and public health within a framework focused on analysis, modeling and innovation in health data.",
     "edu-intro-2": "This multidisciplinary program provided me with a strong scientific foundation in anatomy, imaging, radiology, biology, physics and clinical practice, while preparing me for the technical and human demands of the hospital environment.",
+    "edu-btn-master": "View content",
+    "edu-btn-licence": "View content",
 
     "master-cat-1-title": "Quantitative and theoretical foundations",
     "master-cat-2-title": "Computing, data and tools",
@@ -410,6 +414,8 @@ const translations = {
     "exp-title-1": "Ultrasound Technician",
     "exp-intro-1": "During my years of practice within these two healthcare facilities, I played an active role in patient follow-up, ultrasound assessment and diagnostic orientation, both in pregnancy care and in the management of gynecological conditions and fertility-related concerns.",
     "exp-btn-1": "Read more",
+    "exp-subtitle-1": "Clinical practice",
+    "exp-subtitle-2": "Patient support",
     "exp-li-1a": "Performed gynecological and obstetrical ultrasound examinations, that is, medical imaging procedures using ultrasound to explore the female reproductive system and monitor pregnancy progression.",
     "exp-li-1b": "Contributed to the follow-up and care of pregnant women from early pregnancy to full term, with a focus on monitoring, assessment and clinical decision support.",
     "exp-li-1c": "Participated in the care of women expressing a desire for motherhood, as well as patients facing primary or secondary infertility.",
@@ -476,31 +482,29 @@ const translations = {
   }
 };
 
-function updateToggleLabels(lang) {
+function updateCourseButtonLabels(lang) {
   toggleButtons.forEach(button => {
     const targetId = button.dataset.target;
     const panel = document.getElementById(targetId);
-    const span = button.querySelector("span");
+    const span = button.querySelector(".btn-label");
     const isOpen = panel.classList.contains("open");
 
-    const openText = lang === "fr" ? "Voir le contenu" : "View content";
-    const closeText = lang === "fr" ? "Masquer le contenu" : "Hide content";
-
-    span.textContent = isOpen ? closeText : openText;
+    span.textContent = isOpen
+      ? (lang === "fr" ? "Masquer le contenu" : "Hide content")
+      : (lang === "fr" ? "Voir le contenu" : "View content");
   });
 }
 
-function updateExperienceToggleLabels(lang) {
+function updateExperienceButtonLabels(lang) {
   experienceToggleButtons.forEach(button => {
     const targetId = button.dataset.target;
     const panel = document.getElementById(targetId);
-    const span = button.querySelector("span");
+    const span = button.querySelector(".btn-label");
     const isOpen = panel.classList.contains("open");
 
-    const openText = lang === "fr" ? "Lire la suite" : "Read more";
-    const closeText = lang === "fr" ? "Réduire" : "Show less";
-
-    span.textContent = isOpen ? closeText : openText;
+    span.textContent = isOpen
+      ? (lang === "fr" ? "Réduire" : "Show less")
+      : (lang === "fr" ? "Lire la suite" : "Read more");
   });
 }
 
@@ -515,14 +519,11 @@ function setLanguage(lang) {
   });
 
   langButtons.forEach(button => {
-    button.classList.remove("active");
-    if (button.dataset.lang === lang) {
-      button.classList.add("active");
-    }
+    button.classList.toggle("active", button.dataset.lang === lang);
   });
 
-  updateToggleLabels(lang);
-  updateExperienceToggleLabels(lang);
+  updateCourseButtonLabels(lang);
+  updateExperienceButtonLabels(lang);
   localStorage.setItem("portfolioLanguage", lang);
 }
 
@@ -530,16 +531,14 @@ toggleButtons.forEach(button => {
   button.addEventListener("click", () => {
     const targetId = button.dataset.target;
     const panel = document.getElementById(targetId);
-    const span = button.querySelector("span");
     const lang = document.documentElement.lang || "fr";
+
+    if (!panel) return;
 
     panel.classList.toggle("open");
     button.classList.toggle("open");
 
-    const isOpen = panel.classList.contains("open");
-    span.textContent = isOpen
-      ? (lang === "fr" ? "Masquer le contenu" : "Hide content")
-      : (lang === "fr" ? "Voir le contenu" : "View content");
+    updateCourseButtonLabels(lang);
   });
 });
 
@@ -547,16 +546,15 @@ experienceToggleButtons.forEach(button => {
   button.addEventListener("click", () => {
     const targetId = button.dataset.target;
     const panel = document.getElementById(targetId);
-    const span = button.querySelector("span");
     const lang = document.documentElement.lang || "fr";
+
+    if (!panel) return;
 
     panel.classList.toggle("open");
     button.classList.toggle("open");
+    button.setAttribute("aria-expanded", panel.classList.contains("open") ? "true" : "false");
 
-    const isOpen = panel.classList.contains("open");
-    span.textContent = isOpen
-      ? (lang === "fr" ? "Réduire" : "Show less")
-      : (lang === "fr" ? "Lire la suite" : "Read more");
+    updateExperienceButtonLabels(lang);
   });
 });
 
@@ -572,9 +570,5 @@ window.addEventListener("load", () => {
   activateMenuOnScroll();
 
   const savedLanguage = localStorage.getItem("portfolioLanguage");
-  if (savedLanguage) {
-    setLanguage(savedLanguage);
-  } else {
-    setLanguage("fr");
-  }
+  setLanguage(savedLanguage || "fr");
 });
