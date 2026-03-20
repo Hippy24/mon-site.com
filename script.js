@@ -1,3 +1,5 @@
+document.body.classList.add("js-enabled");
+
 const menuToggle = document.getElementById("menu-toggle");
 const mobileMenu = document.getElementById("mobile-menu");
 const closeMenu = document.getElementById("close-menu");
@@ -13,64 +15,70 @@ if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
 }
 
+function openMobileMenu() {
+  if (mobileMenu) mobileMenu.classList.add("open");
+  if (overlay) overlay.classList.add("show");
+}
+
+function closeMobileMenu() {
+  if (mobileMenu) mobileMenu.classList.remove("open");
+  if (overlay) overlay.classList.remove("show");
+}
+
 if (menuToggle) {
-  menuToggle.addEventListener("click", () => {
-    mobileMenu.classList.add("open");
-    overlay.classList.add("show");
-  });
+  menuToggle.addEventListener("click", openMobileMenu);
 }
 
 if (closeMenu) {
-  closeMenu.addEventListener("click", () => {
-    mobileMenu.classList.remove("open");
-    overlay.classList.remove("show");
-  });
+  closeMenu.addEventListener("click", closeMobileMenu);
 }
 
 if (overlay) {
-  overlay.addEventListener("click", () => {
-    mobileMenu.classList.remove("open");
-    overlay.classList.remove("show");
-  });
+  overlay.addEventListener("click", closeMobileMenu);
 }
 
-navLinks.forEach(link => {
+navLinks.forEach((link) => {
   link.addEventListener("click", () => {
-    if (mobileMenu) mobileMenu.classList.remove("open");
-    if (overlay) overlay.classList.remove("show");
+    closeMobileMenu();
   });
 });
 
 function activateMenuOnScroll() {
-  const scrollY = window.pageYOffset;
+  const scrollY = window.scrollY || window.pageYOffset;
+  let currentSectionId = "";
 
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 160;
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop - 180;
     const sectionHeight = section.offsetHeight;
-    const sectionId = section.getAttribute("id");
-    const currentLinks = document.querySelectorAll(`a[href="#${sectionId}"]`);
 
     if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-      navLinks.forEach(link => link.classList.remove("active"));
-      currentLinks.forEach(link => link.classList.add("active"));
+      currentSectionId = section.getAttribute("id");
+    }
+  });
+
+  if (!currentSectionId && sections.length > 0) {
+    currentSectionId = sections[0].getAttribute("id");
+  }
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    const href = link.getAttribute("href");
+    if (href === `#${currentSectionId}`) {
+      link.classList.add("active");
     }
   });
 }
 
-window.addEventListener("scroll", activateMenuOnScroll);
-
 function revealOnScroll() {
   const windowHeight = window.innerHeight;
 
-  reveals.forEach(element => {
+  reveals.forEach((element) => {
     const elementTop = element.getBoundingClientRect().top;
     if (elementTop < windowHeight - 80) {
       element.classList.add("visible");
     }
   });
 }
-
-window.addEventListener("scroll", revealOnScroll);
 
 const translations = {
   fr: {
@@ -89,6 +97,7 @@ const translations = {
     "nav-contact-mobile": "Contact",
 
     "cv-btn-text-mobile": '<i class="fas fa-download"></i> Télécharger mon CV',
+    "cv-btn-text-desktop": '<i class="fas fa-download"></i> Télécharger mon CV',
     "hero-cv-btn": '<i class="fas fa-download"></i> Télécharger mon CV',
 
     "hero-badge": "Étudiant en Master Data Science en Santé",
@@ -305,6 +314,7 @@ const translations = {
     "nav-contact-mobile": "Contact",
 
     "cv-btn-text-mobile": '<i class="fas fa-download"></i> Download my CV',
+    "cv-btn-text-desktop": '<i class="fas fa-download"></i> Download my CV',
     "hero-cv-btn": '<i class="fas fa-download"></i> Download my CV',
 
     "hero-badge": "Master’s Student in Health Data Science",
@@ -507,42 +517,46 @@ const translations = {
 };
 
 function updateCourseButtonLabels(lang) {
-  toggleButtons.forEach(button => {
+  toggleButtons.forEach((button) => {
     const targetId = button.dataset.target;
     const panel = document.getElementById(targetId);
     const span = button.querySelector(".btn-label");
     const isOpen = panel && panel.classList.contains("open");
 
-    span.textContent = isOpen
-      ? (lang === "fr" ? "Masquer le contenu" : "Hide content")
-      : (lang === "fr" ? "Voir le contenu" : "View content");
+    if (span) {
+      span.textContent = isOpen
+        ? (lang === "fr" ? "Masquer le contenu" : "Hide content")
+        : (lang === "fr" ? "Voir le contenu" : "View content");
+    }
   });
 }
 
 function updateExperienceButtonLabels(lang) {
-  experienceToggleButtons.forEach(button => {
+  experienceToggleButtons.forEach((button) => {
     const targetId = button.dataset.target;
     const panel = document.getElementById(targetId);
     const span = button.querySelector(".btn-label");
     const isOpen = panel && panel.classList.contains("open");
 
-    span.textContent = isOpen
-      ? (lang === "fr" ? "Réduire" : "Show less")
-      : (lang === "fr" ? "Lire la suite" : "Read more");
+    if (span) {
+      span.textContent = isOpen
+        ? (lang === "fr" ? "Réduire" : "Show less")
+        : (lang === "fr" ? "Lire la suite" : "Read more");
+    }
   });
 }
 
 function setLanguage(lang) {
   document.documentElement.lang = lang;
 
-  Object.keys(translations[lang]).forEach(id => {
+  Object.keys(translations[lang]).forEach((id) => {
     const element = document.getElementById(id);
     if (element) {
       element.innerHTML = translations[lang][id];
     }
   });
 
-  langButtons.forEach(button => {
+  langButtons.forEach((button) => {
     button.classList.toggle("active", button.dataset.lang === lang);
   });
 
@@ -551,7 +565,7 @@ function setLanguage(lang) {
   localStorage.setItem("portfolioLanguage", lang);
 }
 
-toggleButtons.forEach(button => {
+toggleButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const targetId = button.dataset.target;
     const panel = document.getElementById(targetId);
@@ -565,7 +579,7 @@ toggleButtons.forEach(button => {
   });
 });
 
-experienceToggleButtons.forEach(button => {
+experienceToggleButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const targetId = button.dataset.target;
     const panel = document.getElementById(targetId);
@@ -580,17 +594,26 @@ experienceToggleButtons.forEach(button => {
   });
 });
 
-langButtons.forEach(button => {
+langButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    setLanguage(button.dataset.lang);
+    const selectedLang = button.dataset.lang;
+    if (selectedLang && translations[selectedLang]) {
+      setLanguage(selectedLang);
+    }
   });
 });
 
-window.addEventListener("load", () => {
-  window.scrollTo(0, 0);
-  revealOnScroll();
+window.addEventListener("scroll", () => {
   activateMenuOnScroll();
+  revealOnScroll();
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  window.scrollTo(0, 0);
 
   const savedLanguage = localStorage.getItem("portfolioLanguage");
-  setLanguage(savedLanguage || "fr");
+  setLanguage(savedLanguage && translations[savedLanguage] ? savedLanguage : "fr");
+
+  revealOnScroll();
+  activateMenuOnScroll();
 });
