@@ -5,6 +5,7 @@ const overlay = document.getElementById("overlay");
 const navLinks = document.querySelectorAll(".nav-link");
 const langButtons = document.querySelectorAll(".lang-btn");
 const toggleButtons = document.querySelectorAll(".toggle-courses-btn");
+const experienceToggleButtons = document.querySelectorAll(".toggle-experience-btn");
 
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
@@ -207,10 +208,12 @@ const translations = {
 
     "experience-heading": "Mes expériences professionnelles",
     "exp-title-1": "Échographiste",
-    "exp-li-1a": "Réalisation d’échographies gynéco-obstétricales : examen d’imagerie médicale utilisant les ultrasons pour explorer l’appareil reproducteur féminin et assurer le suivi de la grossesse.",
-    "exp-li-1b": "Contribution au suivi et à la prise en charge des femmes enceintes, du début de la grossesse jusqu’à terme.",
-    "exp-li-1c": "Participation à la prise en charge des femmes présentant un désir de maternité, ainsi que des patientes souffrant d’infertilité primaire ou secondaire.",
-    "exp-li-1d": "Détection, analyse et orientation diagnostique de nombreuses pathologies gynécologiques et obstétricales rencontrées en pratique.",
+    "exp-intro-1": "Au cours de mes années d’exercice au sein de ces deux structures, j’ai contribué de manière active au suivi, à l’évaluation échographique et à l’orientation diagnostique des patientes, aussi bien dans le cadre de la grossesse que dans celui des pathologies gynécologiques et des problématiques liées à la fertilité.",
+    "exp-btn-1": "Lire la suite",
+    "exp-li-1a": "Réalisation d’échographies gynéco-obstétricales, c’est-à-dire d’examens d’imagerie médicale utilisant les ultrasons pour explorer l’appareil reproducteur féminin et assurer le suivi évolutif de la grossesse.",
+    "exp-li-1b": "Participation au suivi et à la prise en charge des femmes enceintes depuis le début de la grossesse jusqu’à terme, dans une logique de surveillance, d’évaluation et d’aide à la décision clinique.",
+    "exp-li-1c": "Contribution à la prise en charge de femmes exprimant un désir de maternité, ainsi que de patientes confrontées à des situations d’infertilité primaire ou secondaire.",
+    "exp-li-1d": "Appui au repérage précoce, à l’analyse et à l’orientation diagnostique de diverses anomalies obstétricales et pathologies gynécologiques rencontrées en pratique courante.",
     "exp-path-title-1": "Pathologies rencontrées – Grossesse",
     "exp-path-title-2": "Pathologies rencontrées – Système reproducteur",
     "exp-path-1": "Fausse couche",
@@ -227,11 +230,13 @@ const translations = {
     "exp-path-12": "Kystes ovariens fonctionnels",
     "exp-path-13": "Dystrophies ovariennes / syndrome des ovaires polykystiques",
     "exp-path-14": "Kystes endométriosiques",
+
     "exp-title-2": "Manipulateur en radiologie médicale",
     "exp-li-2a": "Réalisation des radiographies",
     "exp-li-2b": "Traitement d’images radiographiques",
     "exp-li-2c": "Gestion du service de radiologie",
     "exp-li-2d": "Rédaction des rapports mensuels et annuels d’activités",
+
     "exp-title-3": "Stage en radiologie",
     "exp-li-3a": "Réalisation des radiographies",
     "exp-li-3b": "Traitement d’images radiographiques",
@@ -245,18 +250,21 @@ const translations = {
     "project-li-1d": "Développement d’un dashboard interactif",
     "project-li-1e": "Modélisation prédictive",
     "project-link-1": "Consulter le projet",
+
     "project-title-2": "Analyse bibliométrique des thèmes et tendances de recherche sur les facteurs environnementaux et le trouble du spectre de l’autisme chez l’enfant",
     "project-li-2a": "Analyse d’un corpus de 1 574 articles scientifiques",
     "project-li-2b": "Exploitation de données issues de Web of Science",
     "project-li-2c": "Utilisation de bibliometrix",
     "project-li-2d": "Cartographie scientifique sous VOSviewer",
     "project-link-2": "Consulter le projet",
+
     "project-title-3": "Modélisation statistique des déterminants de l’épaisseur intima-media carotidienne : analyse par régression linéaire multiple",
     "project-li-3a": "Nettoyage des données",
     "project-li-3b": "Analyse descriptive",
     "project-li-3c": "Régression linéaire multiple",
     "project-li-3d": "Sélection des variables significatives",
     "project-li-3e": "Validation statistique du modèle",
+
     "project-title-4": "Formations certifiantes DataCamp",
     "project-li-4a": "Associate Data Scientist in Python",
     "project-li-4b": "Data Scientist and Statistician in R",
@@ -400,10 +408,12 @@ const translations = {
 
     "experience-heading": "My professional experience",
     "exp-title-1": "Ultrasound Technician",
-    "exp-li-1a": "Performed gynecological and obstetrical ultrasound examinations: medical imaging using ultrasound to explore the female reproductive system and monitor pregnancy.",
-    "exp-li-1b": "Contributed to the follow-up and care of pregnant women from early pregnancy to term.",
-    "exp-li-1c": "Participated in the care of women with a desire for motherhood, as well as patients experiencing primary or secondary infertility.",
-    "exp-li-1d": "Detected, analyzed and supported diagnostic orientation for numerous gynecological and obstetrical conditions encountered in practice.",
+    "exp-intro-1": "During my years of practice within these two healthcare facilities, I played an active role in patient follow-up, ultrasound assessment and diagnostic orientation, both in pregnancy care and in the management of gynecological conditions and fertility-related concerns.",
+    "exp-btn-1": "Read more",
+    "exp-li-1a": "Performed gynecological and obstetrical ultrasound examinations, that is, medical imaging procedures using ultrasound to explore the female reproductive system and monitor pregnancy progression.",
+    "exp-li-1b": "Contributed to the follow-up and care of pregnant women from early pregnancy to full term, with a focus on monitoring, assessment and clinical decision support.",
+    "exp-li-1c": "Participated in the care of women expressing a desire for motherhood, as well as patients facing primary or secondary infertility.",
+    "exp-li-1d": "Supported the early identification, analysis and diagnostic orientation of various obstetrical abnormalities and gynecological conditions encountered in routine practice.",
     "exp-path-title-1": "Conditions encountered – Pregnancy",
     "exp-path-title-2": "Conditions encountered – Reproductive system",
     "exp-path-1": "Miscarriage",
@@ -420,11 +430,13 @@ const translations = {
     "exp-path-12": "Functional ovarian cysts",
     "exp-path-13": "Ovarian dystrophy / polycystic ovary syndrome",
     "exp-path-14": "Endometriotic cysts",
+
     "exp-title-2": "Radiologic Technologist",
     "exp-li-2a": "Performed radiographic imaging",
     "exp-li-2b": "Processed radiographic images",
     "exp-li-2c": "Managed the radiology department",
     "exp-li-2d": "Prepared monthly and annual activity reports",
+
     "exp-title-3": "Radiology Internship",
     "exp-li-3a": "Performed radiographic imaging",
     "exp-li-3b": "Processed radiographic images",
@@ -438,18 +450,21 @@ const translations = {
     "project-li-1d": "Development of an interactive dashboard",
     "project-li-1e": "Predictive modeling",
     "project-link-1": "View project",
+
     "project-title-2": "Bibliometric analysis of research themes and trends on environmental factors and autism spectrum disorder in children",
     "project-li-2a": "Analysis of a corpus of 1,574 scientific articles",
     "project-li-2b": "Use of Web of Science data",
     "project-li-2c": "Use of bibliometrix",
     "project-li-2d": "Scientific mapping with VOSviewer",
     "project-link-2": "View project",
+
     "project-title-3": "Statistical modeling of determinants of carotid intima-media thickness: multiple linear regression analysis",
     "project-li-3a": "Data cleaning",
     "project-li-3b": "Descriptive analysis",
     "project-li-3c": "Multiple linear regression",
     "project-li-3d": "Selection of significant variables",
     "project-li-3e": "Statistical model validation",
+
     "project-title-4": "Certified DataCamp training programs",
     "project-li-4a": "Associate Data Scientist in Python",
     "project-li-4b": "Data Scientist and Statistician in R",
@@ -475,6 +490,20 @@ function updateToggleLabels(lang) {
   });
 }
 
+function updateExperienceToggleLabels(lang) {
+  experienceToggleButtons.forEach(button => {
+    const targetId = button.dataset.target;
+    const panel = document.getElementById(targetId);
+    const span = button.querySelector("span");
+    const isOpen = panel.classList.contains("open");
+
+    const openText = lang === "fr" ? "Lire la suite" : "Read more";
+    const closeText = lang === "fr" ? "Réduire" : "Show less";
+
+    span.textContent = isOpen ? closeText : openText;
+  });
+}
+
 function setLanguage(lang) {
   document.documentElement.lang = lang;
 
@@ -493,6 +522,7 @@ function setLanguage(lang) {
   });
 
   updateToggleLabels(lang);
+  updateExperienceToggleLabels(lang);
   localStorage.setItem("portfolioLanguage", lang);
 }
 
@@ -510,6 +540,23 @@ toggleButtons.forEach(button => {
     span.textContent = isOpen
       ? (lang === "fr" ? "Masquer le contenu" : "Hide content")
       : (lang === "fr" ? "Voir le contenu" : "View content");
+  });
+});
+
+experienceToggleButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const targetId = button.dataset.target;
+    const panel = document.getElementById(targetId);
+    const span = button.querySelector("span");
+    const lang = document.documentElement.lang || "fr";
+
+    panel.classList.toggle("open");
+    button.classList.toggle("open");
+
+    const isOpen = panel.classList.contains("open");
+    span.textContent = isOpen
+      ? (lang === "fr" ? "Réduire" : "Show less")
+      : (lang === "fr" ? "Lire la suite" : "Read more");
   });
 });
 
