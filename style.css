@@ -561,13 +561,7 @@ body {
   font-weight: 600;
 }
 
-.education-intro {
-  margin-top: 10px;
-  margin-bottom: 18px;
-  color: #dbe7f4 !important;
-  line-height: 1.8 !important;
-}
-
+.education-intro,
 .experience-intro {
   margin-top: 10px;
   margin-bottom: 18px;
@@ -608,14 +602,23 @@ body {
 .courses-panel,
 .experience-panel {
   display: none;
-  margin-top: 6px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding-top: 18px;
 }
 
 .courses-panel.open,
 .experience-panel.open {
   display: block;
+}
+
+.courses-panel {
+  margin-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 18px;
+}
+
+.experience-panel {
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .course-category {
@@ -627,9 +630,11 @@ body {
   margin-bottom: 0;
 }
 
-.course-category h4 {
+.course-category h4,
+.pathology-block h4,
+.experience-highlight-card h4 {
   color: var(--accent-light);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   font-size: 1rem;
 }
 
@@ -661,6 +666,47 @@ body {
 .detail-list li {
   color: var(--muted);
   line-height: 1.7;
+}
+
+.detail-list.compact {
+  margin-top: 0;
+}
+
+.experience-highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.experience-highlight-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 18px;
+  border-radius: 14px;
+}
+
+.pathology-block {
+  margin-top: 20px;
+}
+
+.pathology-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+}
+
+.pathology-card {
+  background:
+    linear-gradient(180deg, rgba(186, 116, 19, 0.10), rgba(255,255,255,0.02));
+  border: 1px solid rgba(186, 116, 19, 0.18);
+  color: #f1f5f9;
+  padding: 14px 12px;
+  border-radius: 14px;
+  line-height: 1.5;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
 }
 
 .skills-grid {
@@ -1046,6 +1092,10 @@ body {
   .project-card {
     grid-template-columns: 1fr;
   }
+
+  .experience-highlight-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 900px) {
@@ -1134,7 +1184,8 @@ body {
     padding: 18px;
   }
 
-  .course-tags span {
+  .course-tags span,
+  .pathology-card {
     font-size: 0.85rem;
   }
 }
