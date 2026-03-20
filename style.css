@@ -568,7 +568,15 @@ body {
   line-height: 1.8 !important;
 }
 
-.toggle-courses-btn {
+.experience-intro {
+  margin-top: 10px;
+  margin-bottom: 18px;
+  color: #dbe7f4 !important;
+  line-height: 1.8 !important;
+}
+
+.toggle-courses-btn,
+.toggle-experience-btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -582,26 +590,31 @@ body {
   margin-bottom: 18px;
 }
 
-.toggle-courses-btn:hover {
+.toggle-courses-btn:hover,
+.toggle-experience-btn:hover {
   background: rgba(186, 116, 19, 0.18);
 }
 
-.toggle-courses-btn i {
+.toggle-courses-btn i,
+.toggle-experience-btn i {
   transition: transform 0.3s ease;
 }
 
-.toggle-courses-btn.open i {
+.toggle-courses-btn.open i,
+.toggle-experience-btn.open i {
   transform: rotate(180deg);
 }
 
-.courses-panel {
+.courses-panel,
+.experience-panel {
   display: none;
   margin-top: 6px;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding-top: 18px;
 }
 
-.courses-panel.open {
+.courses-panel.open,
+.experience-panel.open {
   display: block;
 }
 
