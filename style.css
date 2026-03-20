@@ -582,6 +582,7 @@ body {
   cursor: pointer;
   transition: 0.3s ease;
   margin-bottom: 18px;
+  border-radius: 12px;
 }
 
 .toggle-courses-btn:hover,
@@ -653,6 +654,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.07);
   font-size: 0.9rem;
   line-height: 1.35;
+  border-radius: 12px;
 }
 
 .detail-list {
@@ -718,6 +720,7 @@ body {
 
 .skill-card {
   text-align: center;
+  border-radius: 14px;
 }
 
 .skill-card i {
@@ -746,6 +749,7 @@ body {
   width: 100%;
   position: relative;
   overflow: hidden;
+  border-radius: 18px;
 }
 
 .premium-project-card {
@@ -867,6 +871,7 @@ body {
   padding: 8px 12px;
   font-size: 0.88rem;
   border: 1px solid rgba(186, 116, 19, 0.14);
+  border-radius: 12px;
 }
 
 .project-link {
@@ -878,6 +883,7 @@ body {
   font-weight: 600;
   transition: 0.3s ease;
   align-self: flex-start;
+  border-radius: 12px;
 }
 
 .project-link:hover {
@@ -1009,4 +1015,183 @@ body {
     font-size: 0.95rem;
   }
 
-  .
+  .main-content {
+    padding-top: 110px;
+  }
+
+  .content-section {
+    scroll-margin-top: 135px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .hero-right {
+    order: -1;
+  }
+
+  .hero-visual {
+    max-width: 100%;
+    min-height: 380px;
+  }
+
+  .pulse-ring {
+    width: 330px;
+    height: 330px;
+  }
+}
+
+@media (max-width: 992px) {
+  .topbar {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    z-index: 1400;
+    background: var(--accent);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 14px;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+    border-radius: var(--hero-radius);
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .overlay.show {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1200;
+  }
+
+  .main-content {
+    padding: 84px 20px 30px;
+  }
+
+  .page-container {
+    width: 100%;
+  }
+
+  .hero-premium {
+    min-height: auto;
+    padding-top: 18px;
+  }
+
+  .content-section {
+    scroll-margin-top: 90px;
+  }
+
+  .project-card {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-highlight-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .project-media {
+    min-height: 220px;
+  }
+
+  .project-image,
+  .project-placeholder {
+    height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-btn {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    min-height: 320px;
+  }
+
+  .main-dashboard {
+    width: 100%;
+    max-width: 360px;
+    position: relative;
+  }
+
+  .pulse-ring {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-name {
+    font-size: 1.85rem;
+  }
+
+  .hero-tagline {
+    font-size: 0.98rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .content-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .project-media {
+    min-height: 170px;
+  }
+
+  .project-image,
+  .project-placeholder {
+    height: 170px;
+  }
+
+  .hero-contact-links {
+    gap: 12px;
+  }
+
+  .main-content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero-badge {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+
+  .main-dashboard {
+    max-width: 100%;
+    padding: 18px;
+  }
+
+  .course-tags span,
+  .pathology-card {
+    font-size: 0.85rem;
+  }
+}
