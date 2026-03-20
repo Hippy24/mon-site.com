@@ -41,7 +41,7 @@ navLinks.forEach(link => {
 const sections = document.querySelectorAll("section[id]");
 
 function activateMenuOnScroll() {
-  let scrollY = window.pageYOffset;
+  const scrollY = window.pageYOffset;
 
   sections.forEach(section => {
     const sectionTop = section.offsetTop - 160;
@@ -158,6 +158,7 @@ const translations = {
     "m-course-28": "Formation à la recherche",
     "m-course-29": "Santé publique",
     "m-course-30": "Épidémiologie",
+    "m-course-31": "Gestion de projets",
 
     "lic-cat-1-title": "Sciences fondamentales",
     "lic-cat-2-title": "Anatomie, physiologie et disciplines biomédicales",
@@ -206,8 +207,26 @@ const translations = {
 
     "experience-heading": "Mes expériences professionnelles",
     "exp-title-1": "Échographiste",
-    "exp-li-1a": "Réalisation des échographies gynéco-obstétricales",
-    "exp-li-1b": "Responsabilité du service d’échographie",
+    "exp-li-1a": "Réalisation d’échographies gynéco-obstétricales : examen d’imagerie médicale utilisant les ultrasons pour explorer l’appareil reproducteur féminin et assurer le suivi de la grossesse.",
+    "exp-li-1b": "Contribution au suivi et à la prise en charge des femmes enceintes, du début de la grossesse jusqu’à terme.",
+    "exp-li-1c": "Participation à la prise en charge des femmes présentant un désir de maternité, ainsi que des patientes souffrant d’infertilité primaire ou secondaire.",
+    "exp-li-1d": "Détection, analyse et orientation diagnostique de nombreuses pathologies gynécologiques et obstétricales rencontrées en pratique.",
+    "exp-path-title-1": "Pathologies rencontrées – Grossesse",
+    "exp-path-title-2": "Pathologies rencontrées – Système reproducteur",
+    "exp-path-1": "Fausse couche",
+    "exp-path-2": "Grossesse môlaire",
+    "exp-path-3": "Œuf clair",
+    "exp-path-4": "Hydrocéphalie fœtale",
+    "exp-path-5": "Anencéphalie fœtale",
+    "exp-path-6": "Kyste rénal fœtal",
+    "exp-path-7": "Omphalocèle",
+    "exp-path-8": "Hydramnios / Polyhydramnios",
+    "exp-path-9": "Oligoamnios",
+    "exp-path-10": "Myomes utérins",
+    "exp-path-11": "Kystes ovariens organiques",
+    "exp-path-12": "Kystes ovariens fonctionnels",
+    "exp-path-13": "Dystrophies ovariennes / syndrome des ovaires polykystiques",
+    "exp-path-14": "Kystes endométriosiques",
     "exp-title-2": "Manipulateur en radiologie médicale",
     "exp-li-2a": "Réalisation des radiographies",
     "exp-li-2b": "Traitement d’images radiographiques",
@@ -332,6 +351,7 @@ const translations = {
     "m-course-28": "Research training",
     "m-course-29": "Public health",
     "m-course-30": "Epidemiology",
+    "m-course-31": "Project management",
 
     "lic-cat-1-title": "Fundamental sciences",
     "lic-cat-2-title": "Anatomy, physiology and biomedical disciplines",
@@ -380,8 +400,26 @@ const translations = {
 
     "experience-heading": "My professional experience",
     "exp-title-1": "Ultrasound Technician",
-    "exp-li-1a": "Performed gynecological and obstetrical ultrasound examinations",
-    "exp-li-1b": "Managed the ultrasound department",
+    "exp-li-1a": "Performed gynecological and obstetrical ultrasound examinations: medical imaging using ultrasound to explore the female reproductive system and monitor pregnancy.",
+    "exp-li-1b": "Contributed to the follow-up and care of pregnant women from early pregnancy to term.",
+    "exp-li-1c": "Participated in the care of women with a desire for motherhood, as well as patients experiencing primary or secondary infertility.",
+    "exp-li-1d": "Detected, analyzed and supported diagnostic orientation for numerous gynecological and obstetrical conditions encountered in practice.",
+    "exp-path-title-1": "Conditions encountered – Pregnancy",
+    "exp-path-title-2": "Conditions encountered – Reproductive system",
+    "exp-path-1": "Miscarriage",
+    "exp-path-2": "Molar pregnancy",
+    "exp-path-3": "Blighted ovum",
+    "exp-path-4": "Fetal hydrocephalus",
+    "exp-path-5": "Fetal anencephaly",
+    "exp-path-6": "Fetal renal cyst",
+    "exp-path-7": "Omphalocele",
+    "exp-path-8": "Hydramnios / Polyhydramnios",
+    "exp-path-9": "Oligohydramnios",
+    "exp-path-10": "Uterine fibroids",
+    "exp-path-11": "Organic ovarian cysts",
+    "exp-path-12": "Functional ovarian cysts",
+    "exp-path-13": "Ovarian dystrophy / polycystic ovary syndrome",
+    "exp-path-14": "Endometriotic cysts",
     "exp-title-2": "Radiologic Technologist",
     "exp-li-2a": "Performed radiographic imaging",
     "exp-li-2b": "Processed radiographic images",
