@@ -933,12 +933,14 @@ body {
 }
 
 /* REVEAL */
+/* Correction : les sections sont visibles par défaut */
 .reveal {
   opacity: 1;
   transform: translateY(0);
-  transition: all 0.75s ease;
+  transition: opacity 0.75s ease, transform 0.75s ease;
 }
 
+/* Animation activée seulement si JS ajoute la classe au body */
 .js-enabled .reveal {
   opacity: 0;
   transform: translateY(40px);
