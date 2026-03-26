@@ -774,6 +774,7 @@ body {
   width: 24px;
   height: auto;
   display: inline-block;
+  vertical-align: middle;
 }
 
 /* PROJECTS */
