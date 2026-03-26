@@ -757,6 +757,12 @@ body {
   text-align: center;
   padding: 20px;
   transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 120px;
 }
 
 .skill-card i {
@@ -768,13 +774,16 @@ body {
 
 .skill-card span {
   font-weight: 600;
+  display: block;
+  text-align: center;
 }
 
 .skill-card img {
-  width: 24px;
-  height: auto;
-  display: inline-block;
-  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 /* PROJECTS */
