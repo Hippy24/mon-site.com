@@ -770,6 +770,12 @@ body {
   font-weight: 600;
 }
 
+.skill-card img {
+  width: 24px;
+  height: auto;
+  display: inline-block;
+}
+
 /* PROJECTS */
 .projects-grid {
   display: flex;
