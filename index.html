@@ -5,7 +5,1263 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hippolyte Adechian – Data Scientist</title>
 
-  <link rel="stylesheet" href="style.css" />
+  <!-- ✅ FIX: nom de fichier CSS corrigé (était "style (1).css" avec espace et parenthèses) -->
+  <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #1a1c20;
+  --bg-soft: #20242b;
+  --card: rgba(33, 38, 46, 0.72);
+  --text: #f8fafc;
+  --muted: #c9d1d9;
+  --accent: #ba7413;
+  --accent-light: #e6a84f;
+  --blue-light: #8ab4d6;
+  --line: rgba(255, 255, 255, 0.08);
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+  --topbar-height: 88px;
+  --hero-radius: 20px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(20, 40, 90, 0.22), transparent 25%),
+    radial-gradient(circle at 80% 80%, rgba(30, 60, 120, 0.14), transparent 30%),
+    linear-gradient(135deg, #06101f 0%, #0a1830 40%, #0d2345 100%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.page-container {
+  width: min(100%, 1120px);
+  margin: 0 auto;
+}
+
+.glass-card {
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+}
+
+/* =====================
+   TOPBAR
+   ===================== */
+.topbar {
+  width: 100%;
+  min-height: var(--topbar-height);
+  background: rgba(8, 18, 34, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 16px 28px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.topbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.topbar-nav a,
+.mobile-nav a {
+  text-decoration: none;
+  color: #e2e8f0;
+  padding: 12px 14px;
+  transition: 0.3s ease;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  /* ✅ FIX: border transparent par défaut pour éviter un saut visuel au hover/active */
+  border: 1px solid transparent;
+}
+
+.topbar-nav a:hover,
+.topbar-nav a.active,
+.mobile-nav a:hover,
+.mobile-nav a.active {
+  background: rgba(59, 130, 246, 0.14);
+  color: #fff;
+  border: 1px solid rgba(96, 165, 250, 0.26);
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.language-switcher,
+.mobile-language-switcher {
+  display: flex;
+  gap: 8px;
+}
+
+.lang-btn {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  color: white;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.3s ease;
+  border-radius: 12px;
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.cv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: white;
+  font-weight: bold;
+  padding: 12px 16px;
+  transition: 0.3s ease;
+  box-shadow: 0 8px 18px rgba(59, 130, 246, 0.24);
+  white-space: nowrap;
+  border-radius: var(--hero-radius);
+}
+
+.cv-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px rgba(59, 130, 246, 0.32);
+}
+
+/* =====================
+   MENU MOBILE
+   ===================== */
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1101;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(8, 18, 34, 0.92);
+  color: #fff;
+  border-radius: 14px;
+  cursor: pointer;
+  /* ✅ FIX: masqué par défaut sur desktop, affiché uniquement via media query */
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+}
+
+.menu-toggle:hover {
+  background: rgba(20, 32, 58, 0.98);
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: min(88vw, 360px);
+  height: 100vh;
+  background: rgba(7, 16, 30, 0.98);
+  backdrop-filter: blur(14px);
+  z-index: 1102;
+  padding: 20px;
+  transition: right 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  /* ✅ FIX: overflow-y pour les petits écrans */
+  overflow-y: auto;
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+.mobile-menu-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-menu {
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobile-cv-btn {
+  margin-top: 8px;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1100;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =====================
+   MAIN
+   ===================== */
+.main-content {
+  width: 100%;
+  padding: calc(var(--topbar-height) + 20px) 36px 40px;
+}
+
+/* =====================
+   HERO
+   ===================== */
+.hero-premium {
+  min-height: calc(100vh - var(--topbar-height) - 20px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 28px 0 16px;
+  isolation: isolate;
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+  gap: 52px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-left {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-right {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.07), rgba(96,165,250,0.10));
+  border: 1px solid rgba(147, 197, 253, 0.22);
+  color: #dbeafe;
+  backdrop-filter: blur(12px);
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 999px;
+  align-self: flex-start;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.03), 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.badge-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.12), 0 0 14px rgba(96, 165, 250, 0.55);
+  animation: badgePulse 2.2s ease-in-out infinite;
+  /* ✅ FIX: respect reduced-motion */
+  flex-shrink: 0;
+}
+
+.hero-name {
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 1.08;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 0 0 24px rgba(255, 255, 255, 0.08);
+}
+
+.hero-tagline {
+  font-size: clamp(1.02rem, 1.8vw, 1.45rem);
+  line-height: 1.45;
+  margin-bottom: 22px;
+  color: #f8fafc;
+  font-weight: 700;
+  max-width: 650px;
+}
+
+.hero-description {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.9;
+  max-width: 700px;
+  margin-bottom: 26px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 26px;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  padding: 12px 16px;
+  font-weight: 700;
+  transition: 0.3s ease;
+  border: 1px solid transparent;
+  border-radius: var(--hero-radius);
+}
+
+.hero-btn.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.28);
+}
+
+.hero-btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 28px rgba(59, 130, 246, 0.34);
+}
+
+.hero-btn.secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(8px);
+}
+
+.hero-btn.secondary:hover {
+  transform: translateY(-3px);
+  border-color: rgba(96, 165, 250, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 26px;
+}
+
+.hero-stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 15px;
+  backdrop-filter: blur(10px);
+  border-radius: var(--hero-radius);
+}
+
+.hero-stat-card strong {
+  display: block;
+  color: #fff;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.hero-stat-card span {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.hero-contact-links {
+  display: flex;
+  gap: 14px;
+}
+
+.hero-contact-links a {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.05rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: 0.3s ease;
+  backdrop-filter: blur(8px);
+  border-radius: var(--hero-radius);
+}
+
+.hero-contact-links a:hover {
+  color: var(--accent-light);
+  transform: translateY(-4px);
+  border-color: rgba(96, 165, 250, 0.35);
+}
+
+/* =====================
+   HERO VISUAL CARD
+   ===================== */
+.hero-visual {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  min-height: 430px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.floating-card {
+  position: absolute;
+  background: rgba(10, 22, 41, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(14px);
+  color: #fff;
+  border-radius: 22px;
+}
+
+.main-dashboard {
+  width: 100%;
+  max-width: 390px;
+  padding: 24px;
+  z-index: 4;
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+.main-dashboard h3 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.main-dashboard p {
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 18px;
+  font-size: 0.96rem;
+}
+
+.card-top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.card-chip,
+.dashboard-tags span {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.card-chip {
+  color: #dbeafe;
+  background: rgba(96, 165, 250, 0.16);
+  padding: 7px 10px;
+  border-radius: 999px;
+}
+
+.mini-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 82px;
+  margin-bottom: 18px;
+}
+
+.mini-chart span {
+  flex: 1;
+  background: linear-gradient(180deg, var(--accent-light), #1d4ed8);
+  border-radius: 8px 8px 0 0;
+  animation: chartPulse 2.8s ease-in-out infinite;
+}
+
+.mini-chart span:nth-child(1) { height: 35%; animation-delay: 0s; }
+.mini-chart span:nth-child(2) { height: 55%; animation-delay: 0.2s; }
+.mini-chart span:nth-child(3) { height: 42%; animation-delay: 0.4s; }
+.mini-chart span:nth-child(4) { height: 80%; animation-delay: 0.6s; }
+.mini-chart span:nth-child(5) { height: 62%; animation-delay: 0.8s; }
+.mini-chart span:nth-child(6) { height: 92%; animation-delay: 1s; }
+.mini-chart span:nth-child(7) { height: 70%; animation-delay: 1.2s; }
+
+.dashboard-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.dashboard-tags span {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 8px 10px;
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+}
+
+.pulse-ring {
+  position: absolute;
+  width: 390px;
+  height: 390px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 50%;
+  z-index: 0;
+  animation: pulseRing 5s ease-in-out infinite;
+}
+
+/* =====================
+   HERO BACKGROUND FX
+   ===================== */
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.16;
+  z-index: 0;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(circle at center, black 30%, transparent 85%);
+  z-index: 0;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: 0;
+  opacity: 0.24;
+}
+
+.orb-1 {
+  width: 260px;
+  height: 260px;
+  background: rgba(59, 130, 246, 0.32);
+  top: 10%;
+  left: 5%;
+}
+
+.orb-2 {
+  width: 280px;
+  height: 280px;
+  background: rgba(96, 165, 250, 0.18);
+  bottom: 8%;
+  right: 8%;
+}
+
+/* =====================
+   CONTENT SECTIONS
+   ===================== */
+.content-section {
+  padding: 54px 0 10px;
+  scroll-margin-top: 110px;
+}
+
+.content-section h2 {
+  font-size: 2rem;
+  color: var(--accent-light);
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(96, 165, 250, 0.35);
+  padding-bottom: 10px;
+}
+
+.section-card,
+.contact-card {
+  padding: 24px;
+}
+
+.section-card p,
+.contact-card p {
+  color: #e2e8f0;
+  line-height: 1.95;
+  margin-bottom: 16px;
+}
+
+.contact-card i {
+  color: var(--accent-light);
+  margin-right: 10px;
+}
+
+.about-content,
+.contact-content {
+  padding: 0;
+}
+
+.about-content p,
+.contact-content p {
+  color: #e2e8f0;
+  line-height: 1.95;
+  margin-bottom: 16px;
+}
+
+.contact-content i {
+  color: var(--accent-light);
+  margin-right: 10px;
+}
+
+.contact-content a {
+  color: #dbeafe;
+  text-decoration: none;
+}
+
+.contact-content a:hover {
+  color: var(--accent-light);
+}
+
+/* =====================
+   TIMELINE
+   ===================== */
+.premium-timeline {
+  position: relative;
+  margin-top: 20px;
+  padding-left: 0;
+}
+
+.premium-timeline::before {
+  display: none;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 34px;
+}
+
+.timeline-marker {
+  display: none;
+}
+
+.timeline-date {
+  font-weight: bold;
+  color: var(--accent-light);
+  margin-bottom: 10px;
+  letter-spacing: 0.2px;
+}
+
+.timeline-content {
+  padding: 22px;
+  transition: transform 0.3s ease;
+}
+
+.timeline-content:hover,
+.skill-card:hover,
+.project-card:hover,
+.section-card:hover,
+.contact-card:hover {
+  transform: translateY(-3px);
+}
+
+.timeline-content h3 {
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.timeline-content p {
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 10px;
+}
+
+.item-icon {
+  font-size: 1.25rem;
+  color: var(--accent-light);
+  margin-bottom: 12px;
+}
+
+.institution {
+  color: var(--blue-light) !important;
+  font-weight: 600;
+}
+
+.education-intro,
+.experience-intro {
+  margin-top: 10px;
+  margin-bottom: 18px;
+  color: #dbe7f4 !important;
+  line-height: 1.8 !important;
+}
+
+/* =====================
+   TOGGLE BUTTONS
+   ===================== */
+.toggle-courses-btn,
+.toggle-experience-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  background: rgba(59, 130, 246, 0.10);
+  border: 1px solid rgba(96, 165, 250, 0.25);
+  color: #f8fafc;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-bottom: 18px;
+  border-radius: 12px;
+}
+
+.toggle-courses-btn:hover,
+.toggle-experience-btn:hover {
+  background: rgba(59, 130, 246, 0.18);
+}
+
+.toggle-courses-btn i,
+.toggle-experience-btn i {
+  transition: transform 0.3s ease;
+}
+
+.toggle-courses-btn.open i,
+.toggle-experience-btn.open i {
+  transform: rotate(180deg);
+}
+
+/* =====================
+   PANELS (cours / expériences)
+   ===================== */
+.courses-panel,
+.experience-panel {
+  /* ✅ FIX: utilisation de display:none + display:block (plus fiable que visibility)
+     Le JS toggle la classe .open pour afficher/masquer */
+  display: none;
+}
+
+.courses-panel.open,
+.experience-panel.open {
+  display: block;
+}
+
+.courses-panel {
+  margin-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 18px;
+}
+
+.experience-panel {
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.course-category {
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+.course-category:last-child {
+  margin-bottom: 0;
+}
+
+.course-category h4,
+.pathology-block h4,
+.experience-highlight-card h4 {
+  color: var(--accent-light);
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.course-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.course-tags span {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #e5edf8;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  font-size: 0.9rem;
+  line-height: 1.35;
+  border-radius: 12px;
+}
+
+.detail-list {
+  margin-top: 10px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detail-list li {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.detail-list.compact {
+  margin-top: 0;
+}
+
+.experience-highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.experience-highlight-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 18px;
+  border-radius: 14px;
+}
+
+.pathology-block {
+  margin-top: 22px;
+}
+
+.pathology-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+}
+
+.pathology-card {
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.10), rgba(255,255,255,0.02));
+  border: 1px solid rgba(96, 165, 250, 0.18);
+  color: #f1f5f9;
+  padding: 14px 12px;
+  border-radius: 14px;
+  line-height: 1.5;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+}
+
+/* =====================
+   SKILLS
+   ===================== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.skill-card {
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 120px;
+}
+
+.skill-card i {
+  font-size: 1.8rem;
+  color: var(--accent-light);
+  display: block;
+}
+
+.skill-card span {
+  display: block;
+  font-weight: 600;
+  text-align: center;
+}
+
+.skill-card img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* =====================
+   PROJECTS
+   ===================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.project-card {
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.premium-project-card {
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+  gap: 0;
+}
+
+.project-media {
+  min-height: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+}
+
+.project-image-contain {
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 24px;
+}
+
+.project-media-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-placeholder {
+  width: 100%;
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: var(--accent-light);
+  background:
+    radial-gradient(circle at center, rgba(96, 165, 250, 0.12), transparent 55%),
+    rgba(255,255,255,0.03);
+}
+
+.project-content {
+  padding: 24px;
+}
+
+.project-topline {
+  color: var(--blue-light);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.project-title {
+  font-size: 1.35rem;
+  line-height: 1.45;
+  margin-bottom: 14px;
+  color: #fff;
+}
+
+.project-description {
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.tags span {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #e5edf8;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  font-size: 0.88rem;
+  border-radius: 999px;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  border-radius: 14px;
+  transition: 0.3s ease;
+}
+
+.project-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+}
+
+/* =====================
+   FOOTER
+   ===================== */
+.footer {
+  padding: 34px 0 16px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* =====================
+   REVEAL ANIMATION
+   ===================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =====================
+   HERO FADE-UP
+   ===================== */
+.animate-fade-up {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.delay-2 { animation-delay: 0.12s; }
+.delay-3 { animation-delay: 0.24s; }
+.delay-4 { animation-delay: 0.36s; }
+.delay-5 { animation-delay: 0.48s; }
+
+/* =====================
+   KEYFRAMES
+   ===================== */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); opacity: 0.95; }
+  50% { transform: scale(1.12); opacity: 1; }
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulseRing {
+  0%, 100% { transform: scale(0.95); opacity: 0.5; }
+  50% { transform: scale(1.03); opacity: 0.9; }
+}
+
+@keyframes chartPulse {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.15); }
+}
+
+/* =====================
+   REDUCED MOTION
+   ===================== */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .badge-dot,
+  .main-dashboard,
+  .pulse-ring,
+  .mini-chart span {
+    animation: none;
+  }
+
+  .hero-btn:hover,
+  .cv-btn:hover,
+  .project-link:hover,
+  .timeline-content:hover,
+  .skill-card:hover,
+  .project-card:hover {
+    transform: none;
+  }
+}
+
+/* =====================
+   RESPONSIVE — ≤ 1100px
+   ===================== */
+@media (max-width: 1100px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .hero-right {
+    order: -1;
+  }
+
+  .hero-visual {
+    max-width: 100%;
+    min-height: 360px;
+  }
+
+  .main-dashboard {
+    max-width: 520px;
+  }
+}
+
+/* =====================
+   RESPONSIVE — ≤ 900px
+   ===================== */
+@media (max-width: 900px) {
+  /* ✅ FIX: topbar masquée sur mobile */
+  .topbar {
+    display: none;
+  }
+
+  /* ✅ FIX: bouton hamburger visible sur mobile */
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  /* ✅ FIX: padding-top adapté au bouton hamburger (60px) au lieu de topbar (108px) */
+  .main-content {
+    padding: 70px 20px 30px;
+  }
+
+  .hero-premium {
+    min-height: auto;
+    padding-top: 24px;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-highlight-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .premium-project-card {
+    grid-template-columns: 1fr;
+  }
+
+  .project-media {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .project-image,
+  .project-placeholder {
+    min-height: 220px;
+  }
+}
+
+/* =====================
+   RESPONSIVE — ≤ 640px
+   ===================== */
+@media (max-width: 640px) {
+  .content-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .hero-name {
+    font-size: 2.1rem;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-btn {
+    justify-content: center;
+  }
+
+  .hero-contact-links {
+    flex-wrap: wrap;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .pathology-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main-dashboard {
+    padding: 20px;
+  }
+}
+
+</style>
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -706,7 +1962,604 @@
     </div>
   </main>
 
-  <script src="script.js" defer></script>
+  <!-- ✅ FIX: script chargé avec defer (correct), chemin simplifié -->
+  <script>
+document.body.classList.add("js-enabled");
+
+const menuToggle = document.getElementById("menu-toggle");
+const mobileMenu = document.getElementById("mobile-menu");
+const closeMenu = document.getElementById("close-menu");
+const overlay = document.getElementById("overlay");
+const navLinks = document.querySelectorAll(".nav-link");
+const langButtons = document.querySelectorAll(".lang-btn");
+const toggleButtons = document.querySelectorAll(".toggle-courses-btn");
+const experienceToggleButtons = document.querySelectorAll(".toggle-experience-btn");
+const sections = document.querySelectorAll("section[id]");
+const reveals = document.querySelectorAll(".reveal");
+
+// ✅ FIX: Empêche le navigateur de restaurer la position de scroll entre visites
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
+// --- Menu mobile ---
+function openMobileMenu() {
+  if (mobileMenu) mobileMenu.classList.add("open");
+  if (overlay) overlay.classList.add("show");
+}
+
+function closeMobileMenu() {
+  if (mobileMenu) mobileMenu.classList.remove("open");
+  if (overlay) overlay.classList.remove("show");
+}
+
+if (menuToggle) menuToggle.addEventListener("click", openMobileMenu);
+if (closeMenu) closeMenu.addEventListener("click", closeMobileMenu);
+if (overlay) overlay.addEventListener("click", closeMobileMenu);
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => { closeMobileMenu(); });
+});
+
+// --- Activation du lien de navigation selon la section visible ---
+function activateMenuOnScroll() {
+  const scrollY = window.scrollY || window.pageYOffset;
+  let currentSectionId = "";
+
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop - 180;
+    const sectionHeight = section.offsetHeight;
+    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+      currentSectionId = section.getAttribute("id");
+    }
+  });
+
+  // ✅ FIX: Fallback sur "about" si aucune section n'est détectée
+  // (évite qu'aucun lien ne soit actif au chargement, car #hero n'est pas dans la nav)
+  if (!currentSectionId) {
+    currentSectionId = "about";
+  }
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    const href = link.getAttribute("href");
+    if (href === `#${currentSectionId}`) {
+      link.classList.add("active");
+    }
+  });
+}
+
+// --- Révélation des sections au scroll ---
+function revealOnScroll() {
+  const windowHeight = window.innerHeight;
+  reveals.forEach((element) => {
+    const elementTop = element.getBoundingClientRect().top;
+    if (elementTop < windowHeight - 80) {
+      element.classList.add("visible");
+    }
+  });
+}
+
+// --- Traductions FR / EN ---
+const translations = {
+  fr: {
+    "nav-about": "À propos",
+    "nav-education": "Parcours académique",
+    "nav-experience": "Expériences professionnelles",
+    "nav-skills": "Compétences",
+    "nav-projects": "Projets",
+    "nav-contact": "Contact",
+
+    "nav-about-mobile": "À propos",
+    "nav-education-mobile": "Parcours académique",
+    "nav-experience-mobile": "Expériences professionnelles",
+    "nav-skills-mobile": "Compétences",
+    "nav-projects-mobile": "Projets",
+    "nav-contact-mobile": "Contact",
+
+    "cv-btn-text-mobile": '<i class="fas fa-download"></i> Télécharger mon CV',
+    "hero-cv-btn": '<i class="fas fa-download"></i> Télécharger mon CV',
+
+    "hero-badge": "En recherche d'alternance Data Scientist / Data Analyst – Septembre 2026",
+    "hero-tagline": "Entre expertise clinique et intelligence des données",
+    "hero-description": "Je transforme des données complexes en insights actionnables grâce au Machine Learning, au NLP et à la Business Intelligence, avec une expertise unique combinant Data Science et connaissance approfondie du terrain médical.",
+    "hero-projects-btn": '<i class="fas fa-folder-open"></i> Voir mes projets',
+
+    "hero-stat-title-1": "Data Science",
+    "hero-stat-text-1": "Python • R • SQL • MongoDB",
+    "hero-stat-title-2": "Machine Learning",
+    "hero-stat-text-2": "Scikit-learn • Deep Learning • IA",
+    "hero-stat-title-3": "NLP & Visualisation",
+    "hero-stat-text-3": "spaCy • CamemBERT • Power BI • Dash",
+
+    "hero-card-chip": "Data Science Dashboard",
+    "hero-card-title": "NLP · ML · Business Intelligence",
+    "hero-card-text": "Pipelines de données, modèles de langage et tableaux de bord décisionnels au service de l'analyse et de la décision.",
+    "hero-tag-card-1": "Machine Learning",
+    "hero-tag-card-2": "NLP / NER",
+    "hero-tag-card-3": "Dashboarding",
+
+    "about-heading": "À propos de moi",
+    "about-p1": "🏥 Je suis étudiant en <strong>Master Data Science en Santé (M2)</strong> à l'Université de Lille et actuellement stagiaire Data Scientist – Data Analyst au <strong>CHU Dijon Bourgogne</strong>. En recherche d'une <strong>alternance de 12 mois à partir de septembre 2026</strong>, mon profil se situe à l'intersection de l'analyse de données, de l'intelligence artificielle et du monde médical.",
+    "about-p2": "🔬 Mon parcours s'appuie sur une première formation en <strong>imagerie médicale et radiobiologie</strong>, qui m'a permis d'acquérir une connaissance profonde du milieu hospitalier, des pratiques cliniques et de la réalité du terrain. Cette base scientifique et professionnelle m'a naturellement conduit vers une spécialisation en <strong>data science</strong>, afin de développer des compétences avancées en Machine Learning, NLP, visualisation de données et exploitation de bases de données complexes.",
+    "about-p3": "📊 Mon stage au CHU Dijon Bourgogne m'a permis de développer des pipelines NLP/NER (spaCy, CamemBERT), d'exploiter un entrepôt de données de santé via SQL, de benchmarker des modèles de langage (LLM, BERT) et de concevoir des tableaux de bord BI (SAP Business Objects, Power BI). J'apprécie les projets combinant rigueur méthodologique, impact concret et dimension interdisciplinaire.",
+    "about-p4": "💡 Je recherche activement une <strong>alternance Data Scientist / Data Analyst de 12 mois débutant en septembre 2026</strong>. Mon objectif est de rejoindre une organisation ambitieuse où je peux mobiliser mes compétences en Python, SQL, ML et NLP pour produire des analyses fiables, des modèles pertinents et des visualisations claires à forte valeur ajoutée.",
+
+    "education-heading": "Mon parcours académique",
+    "edu-title-1": "Master Data Science en Santé – M2 (en cours)",
+    "edu-title-2": "Licence Professionnelle en Génie d'Imagerie Médicale et de Radiobiologie",
+    "edu-intro-1": "Formation articulant des compétences avancées en statistiques, informatique, NLP, Machine Learning et Big Data, dans une logique d'analyse, de modélisation et d'innovation appliquée aux données.",
+    "edu-intro-2": "Cette formation pluridisciplinaire m'a apporté une base scientifique solide en anatomie, imagerie, radiologie, biologie, physique et pratique clinique, tout en me préparant aux exigences techniques et humaines du milieu hospitalier.",
+
+    "master-cat-m2-title": "Informatique avancée & IA (M2)",
+    "master-cat-m2b-title": "Statistiques & Données (M2)",
+    "master-cat-1-title": "Fondements quantitatifs et théoriques (M1)",
+    "master-cat-2-title": "Informatique, données et outils (M1)",
+    "master-cat-3-title": "Sciences du vivant et biomédecine",
+    "master-cat-4-title": "Santé publique, recherche et professionnalisation",
+
+    "m2-course-1": "Text Mining & Natural Language Processing",
+    "m2-course-2": "Deep Learning",
+    "m2-course-3": "Apprentissage automatique avancé",
+    "m2-course-4": "Large-scale Data Mining",
+    "m2-course-5": "Big Data Technologies & Electronic Health Records",
+    "m2-course-6": "Data Engineering",
+    "m2-course-7": "Ontologie & Web Mining",
+    "m2-course-8": "Bioinformatique",
+    "m2-course-9": "Conception d'interfaces Homme-Machine",
+    "m2-course-10": "Statistique Bayésienne",
+    "m2-course-11": "Analyse de survie",
+    "m2-course-12": "Séries chronologiques & Données spatiales",
+    "m2-course-13": "Épidémiologie & Recherche Clinique",
+    "m2-course-14": "Médecine de précision & Médecine personnalisée",
+    "m2-course-15": "Modèles économiques du Big Data en Santé",
+    "m2-course-16": "Professional English for Data Science",
+
+    "m-course-1": "Algorithmique",
+    "m-course-2": "Algèbre et analyse",
+    "m-course-3": "Mesure et probabilités statistiques",
+    "m-course-4": "Statistique paramétrique",
+    "m-course-5": "Statistique inférentielle",
+    "m-course-6": "Modélisation statistique",
+    "m-course-7": "Optimisation",
+    "m-course-8": "Fouille de motifs",
+    "m-course-9": "Systèmes d'exploitation",
+    "m-course-10": "Data management",
+    "m-course-11": "Health Data Science Toolbox",
+    "m-course-12": "Web scraping et web crawling",
+    "m-course-13": "Modélisation informatique",
+    "m-course-14": "Informatique biomédicale",
+    "m-course-15": "Biologie moléculaire et biologie systémique",
+    "m-course-16": "Biochimie",
+    "m-course-17": "Biologie cellulaire",
+    "m-course-18": "Physiologie et physiopathologie",
+    "m-course-19": "Pharmacologie",
+    "m-course-20": "Pharmacogénétique / Pharmacogénomique",
+    "m-course-21": "Génomique",
+    "m-course-22": "Transcriptomique",
+    "m-course-23": "Protéomique",
+    "m-course-24": "Métabolomique",
+    "m-course-25": "Capteurs biomédicaux",
+    "m-course-26": "Communication",
+    "m-course-27": "Anglais professionnel",
+    "m-course-28": "Formation à la recherche",
+    "m-course-29": "Santé publique",
+    "m-course-30": "Épidémiologie",
+    "m-course-31": "Gestion de projets",
+
+    "lic-cat-1-title": "Sciences fondamentales",
+    "lic-cat-2-title": "Anatomie, physiologie et disciplines biomédicales",
+    "lic-cat-3-title": "Imagerie, radiologie et techniques professionnelles",
+    "lic-cat-4-title": "Statistiques, informatique et communication",
+    "lic-cat-5-title": "Santé, éthique et environnement professionnel",
+
+    "l-course-1": "Mathématiques", "l-course-2": "Physique", "l-course-3": "Chimie générale",
+    "l-course-4": "Chimie organique", "l-course-5": "Biochimie structurale", "l-course-6": "Biologie cellulaire",
+    "l-course-7": "Microbiologie", "l-course-8": "Immunologie", "l-course-9": "Biologie moléculaire",
+    "l-course-10": "Pharmacologie", "l-course-11": "Radiobiologie et radioprotection",
+    "l-course-12": "Anatomie : ostéologie, arthrologie et myologie", "l-course-13": "Splanchnologie",
+    "l-course-14": "Embryologie", "l-course-15": "Physiologie humaine",
+    "l-course-16": "Anatomie radiologique : tronc, viscères et crâne", "l-course-17": "Neuroanatomie",
+    "l-course-18": "Sémiologie médicale", "l-course-19": "Sémiologie chirurgicale",
+    "l-course-20": "Sémiologie radiologique", "l-course-21": "Appareillage",
+    "l-course-22": "Enregistrement d'images", "l-course-23": "Techniques instrumentales",
+    "l-course-24": "Techniques radiologiques", "l-course-25": "Techniques radiodiagnostiques",
+    "l-course-26": "Échographie gynéco-obstétricale", "l-course-27": "Biophysique de l'imagerie",
+    "l-course-28": "Physique électronique", "l-course-29": "Informatique médicale",
+    "l-course-30": "Initiation à l'informatique", "l-course-31": "Biostatistique",
+    "l-course-32": "Anglais technique", "l-course-33": "Techniques d'expression et méthodes de communication",
+    "l-course-34": "Santé publique", "l-course-35": "Déontologie médicale",
+    "l-course-36": "Législation du travail", "l-course-37": "Soins infirmiers", "l-course-38": "Sport",
+
+    "experience-heading": "Mes expériences professionnelles",
+
+    "exp-title-0": "Stagiaire Data Scientist – Data Analyst",
+    "exp-intro-0": "Stage réalisé au sein de la Direction des Systèmes Numériques du CHU Dijon Bourgogne. Développement de pipelines NLP/NER (spaCy, CamemBERT), exploitation de l'entrepôt de données de santé (EDS), benchmark de modèles de langage et conception de tableaux de bord décisionnels.",
+    "exp-subtitle-0a": "Missions principales",
+    "exp-subtitle-0b": "Analyse et valorisation",
+    "exp-li-0a": "Développement de pipelines NLP/NER (spaCy, CamemBERT) pour l'extraction automatique d'informations clés à partir de documents textuels non structurés à grande échelle.",
+    "exp-li-0b": "Exploitation de l'entrepôt de données de santé (EDS) : requêtage SQL, nettoyage, transformation et intégration de données hétérogènes (ETL).",
+    "exp-li-0c": "Benchmark et évaluation de modèles de langage (LLM, BERT, CamemBERT) sur des tâches de classification et d'extraction d'information.",
+    "exp-li-0d": "Conception de tableaux de bord décisionnels (SAP Business Objects, Power BI) et production de statistiques pour l'aide à la décision.",
+    "exp-path-title-0": "Environnement technique",
+    "exp-path-0": "Python",
+    "exp-path-0b": "NLP / NER",
+    "exp-path-0c": "spaCy · CamemBERT · BERT",
+    "exp-path-0d": "LLM",
+    "exp-path-0e": "SQL · ETL · EDS",
+    "exp-path-0f": "Pandas · Scikit-learn · NumPy",
+    "exp-path-0g": "SAP Business Objects",
+    "exp-path-0h": "Power BI",
+
+    "exp-title-1": "Technicien en Imagerie Médicale – Échographiste",
+    "exp-intro-1": "Au cours de mes années d'exercice au sein de ces deux structures, j'ai contribué de manière active au suivi, à l'évaluation échographique et à l'orientation diagnostique des patientes, aussi bien dans le cadre de la grossesse que dans celui des pathologies gynécologiques et des problématiques liées à la fertilité.",
+    "exp-subtitle-1": "Pratique clinique",
+    "exp-subtitle-2": "Accompagnement des patientes",
+    "exp-li-1a": "Réalisation d'échographies gynéco-obstétricales, c'est-à-dire d'examens d'imagerie médicale utilisant les ultrasons pour explorer l'appareil reproducteur féminin et assurer le suivi évolutif de la grossesse.",
+    "exp-li-1b": "Participation au suivi et à la prise en charge des femmes enceintes depuis le début de la grossesse jusqu'à terme, dans une logique de surveillance, d'évaluation et d'aide à la décision clinique.",
+    "exp-li-1c": "Contribution à la prise en charge de femmes exprimant un désir de maternité, ainsi que de patientes confrontées à des situations d'infertilité primaire ou secondaire.",
+    "exp-li-1d": "Appui au repérage précoce, à l'analyse et à l'orientation diagnostique de diverses anomalies obstétricales et pathologies gynécologiques rencontrées en pratique courante.",
+    "exp-path-title-1": "Pathologies rencontrées – Grossesse",
+    "exp-path-title-2": "Pathologies rencontrées – Système reproducteur",
+    "exp-path-1": "Fausse couche", "exp-path-2": "Grossesse môlaire", "exp-path-3": "Œuf clair",
+    "exp-path-4": "Hydrocéphalie fœtale", "exp-path-5": "Anencéphalie fœtale", "exp-path-6": "Kyste rénal fœtal",
+    "exp-path-7": "Omphalocèle", "exp-path-8": "Hydramnios / Polyhydramnios", "exp-path-9": "Oligoamnios",
+    "exp-path-10": "Myomes utérins", "exp-path-11": "Kystes ovariens organiques",
+    "exp-path-12": "Kystes ovariens fonctionnels",
+    "exp-path-13": "Dystrophies ovariennes / syndrome des ovaires polykystiques",
+    "exp-path-14": "Kystes endométriosiques",
+
+    "exp-title-2": "Technicien en Imagerie Médicale – Responsable de l'unité de radiologie",
+    "exp-intro-2": "Pendant trois années au sein de ce centre hospitalier spécialisé dans la prise en charge des affections respiratoires, j'ai occupé des fonctions de responsabilité au service de radiologie, en contribuant au diagnostic, au suivi des patients et à l'organisation du service dans un cadre institutionnel lié au Programme National de Lutte contre la Tuberculose et au Fonds mondial.",
+    "exp-subtitle-3": "Responsabilités principales",
+    "exp-subtitle-4": "Organisation et encadrement",
+    "exp-li-2a": "Responsable de l'unité de radiologie : planification, coordination d'équipe et suivi des ressources.",
+    "exp-li-2b": "Réalisation de radiographies thoraciques et pulmonaires pour le diagnostic et le suivi des affections respiratoires.",
+    "exp-li-2c": "Contribution à la prise en charge des patients atteints de pathologies pulmonaires en collaboration avec les médecins.",
+    "exp-li-2d": "Rédaction mensuelle des rapports d'activité dans le cadre du suivi institutionnel du service.",
+    "exp-li-2e": "Encadrement de stagiaires venus mettre en pratique leurs connaissances théoriques.",
+    "exp-li-2f": "Participation à l'exploration radiographique de pathologies non pulmonaires, notamment en contexte traumatique et ostéo-articulaire.",
+    "exp-path-title-3": "Pathologies respiratoires prises en charge",
+    "exp-path-title-4": "Autres explorations radiographiques",
+    "exp-path-15": "Tuberculose", "exp-path-16": "Pleurésie", "exp-path-17": "Syndromes bronchiques",
+    "exp-path-18": "Bronchopneumopathie chronique obstructive", "exp-path-19": "Syndrome d'épanchement pleural",
+    "exp-path-20": "Traumatismes / accidents de la voie publique (AVP)",
+    "exp-path-21": "Arthrose", "exp-path-22": "Explorations abdominales",
+
+    "exp-title-3": "Stage en radiologie",
+    "exp-li-3a": "Réalisation des radiographies",
+    "exp-li-3b": "Traitement d'images radiographiques",
+
+    "skills-heading": "Mes compétences",
+    "projects-heading": "Mes projets",
+
+    "project-title-1": "Analyse des tendances épidémiologiques mondiales et facteurs associés à la mortalité liée au cancer de sein",
+    "project-p-1": "Ce projet combine la collecte de données par web scraping (IHME, Banque mondiale) sur 20+ pays et 10 ans de données, le développement d'un dashboard interactif (Plotly Dash) et une modélisation prédictive par ACP, K-Means et Random Forest — identification de 3 segments épidémiologiques distincts.",
+    "project-link-1": "Consulter le projet",
+
+    "project-title-2": "Analyse bibliométrique des thèmes et tendances de recherche sur les facteurs environnementaux et le trouble du spectre de l'autisme chez l'enfant",
+    "project-p-2": "Text mining sur un corpus de 1 574 articles scientifiques issus de Web of Science (2000–2024). Utilisation de bibliometrix et VOSviewer pour cartographier les réseaux de co-citation, identifier les auteurs influents et dégager les tendances scientifiques émergentes.",
+    "project-link-2": "Consulter le projet",
+
+    "project-title-3": "Modélisation statistique des déterminants de l'épaisseur intima-media carotidienne : analyse par régression linéaire multiple",
+    "project-p-3": "Préparation, nettoyage et analyse descriptive d'un jeu de données cliniques sous R. Modélisation par régression linéaire multiple — validation par tests de résidus, analyse de multicolinéarité et sélection de variables. Rédaction d'un rapport statistique structuré.",
+
+    "project-title-4": "Formations certifiantes DataCamp",
+    "project-p-4": "Parcours de certifications structurées renforçant les compétences techniques en analyse de données, Machine Learning et requêtage : Associate Data Scientist in Python, Data Scientist in R, Associate Data Analyst in SQL et Associate Data Analyst in Power BI (2024).",
+    "project-link-4": "Consulter",
+
+    "contact-heading": "Contact",
+    "footer-text": "© 2026 Hippolyte ADECHIAN"
+  },
+
+  en: {
+    "nav-about": "About",
+    "nav-education": "Academic background",
+    "nav-experience": "Professional experience",
+    "nav-skills": "Skills",
+    "nav-projects": "Projects",
+    "nav-contact": "Contact",
+
+    "nav-about-mobile": "About",
+    "nav-education-mobile": "Academic background",
+    "nav-experience-mobile": "Professional experience",
+    "nav-skills-mobile": "Skills",
+    "nav-projects-mobile": "Projects",
+    "nav-contact-mobile": "Contact",
+
+    "cv-btn-text-mobile": '<i class="fas fa-download"></i> Download my CV',
+    "hero-cv-btn": '<i class="fas fa-download"></i> Download my CV',
+
+    "hero-badge": "Seeking work-study contract (Data Scientist / Data Analyst) – September 2026",
+    "hero-tagline": "Between clinical expertise and data intelligence",
+    "hero-description": "I turn complex data into actionable insights through Machine Learning, NLP and Business Intelligence, combining Data Science skills with deep knowledge of the medical field.",
+    "hero-projects-btn": '<i class="fas fa-folder-open"></i> View my projects',
+
+    "hero-stat-title-1": "Data Science",
+    "hero-stat-text-1": "Python • R • SQL • MongoDB",
+    "hero-stat-title-2": "Machine Learning",
+    "hero-stat-text-2": "Scikit-learn • Deep Learning • AI",
+    "hero-stat-title-3": "NLP & Visualization",
+    "hero-stat-text-3": "spaCy • CamemBERT • Power BI • Dash",
+
+    "hero-card-chip": "Data Science Dashboard",
+    "hero-card-title": "NLP · ML · Business Intelligence",
+    "hero-card-text": "Data pipelines, language models and decision dashboards for analysis and decision-making.",
+    "hero-tag-card-1": "Machine Learning",
+    "hero-tag-card-2": "NLP / NER",
+    "hero-tag-card-3": "Dashboarding",
+
+    "about-heading": "About me",
+    "about-p1": "🏥 I am a <strong>Master's student in Health Data Science (M2)</strong> at the University of Lille and currently a Data Scientist – Data Analyst intern at <strong>CHU Dijon Bourgogne</strong>. Actively seeking a <strong>12-month work-study contract starting September 2026</strong>, my profile sits at the intersection of data analysis, artificial intelligence and the medical field.",
+    "about-p2": "🔬 My background is built on an initial training in <strong>medical imaging and radiobiology</strong>, which gave me deep knowledge of the hospital environment, clinical practices and field realities. This foundation naturally led me toward <strong>data science</strong>, developing advanced skills in Machine Learning, NLP, data visualization and complex database management.",
+    "about-p3": "📊 My internship at CHU Dijon Bourgogne allowed me to develop NLP/NER pipelines (spaCy, CamemBERT), exploit a health data warehouse via SQL, benchmark language models (LLM, BERT) and design BI dashboards (SAP Business Objects, Power BI). I enjoy projects combining methodological rigor, practical impact and interdisciplinary dimension.",
+    "about-p4": "💡 I am actively looking for a <strong>12-month work-study contract as Data Scientist / Data Analyst starting September 2026</strong>. My goal is to join an ambitious organization where I can apply my skills in Python, SQL, ML and NLP to produce reliable analyses, relevant models and clear high-value visualizations.",
+
+    "education-heading": "My academic background",
+    "edu-title-1": "Master's in Health Data Science – M2 (ongoing)",
+    "edu-title-2": "Professional Bachelor's Degree in Medical Imaging Engineering and Radiobiology",
+    "edu-intro-1": "Program combining advanced skills in statistics, computing, NLP, Machine Learning and Big Data, focused on analysis, modeling and innovation applied to data.",
+    "edu-intro-2": "This multidisciplinary program provided a solid scientific foundation in anatomy, imaging, radiology, biology, physics and clinical practice, while preparing me for the technical and human demands of the hospital environment.",
+
+    "master-cat-m2-title": "Advanced Computing & AI (M2)",
+    "master-cat-m2b-title": "Statistics & Data (M2)",
+    "master-cat-1-title": "Quantitative and theoretical foundations (M1)",
+    "master-cat-2-title": "Computing, data and tools (M1)",
+    "master-cat-3-title": "Life sciences and biomedicine",
+    "master-cat-4-title": "Public health, research and professional development",
+
+    "m2-course-1": "Text Mining & Natural Language Processing",
+    "m2-course-2": "Deep Learning",
+    "m2-course-3": "Advanced Machine Learning",
+    "m2-course-4": "Large-scale Data Mining",
+    "m2-course-5": "Big Data Technologies & Electronic Health Records",
+    "m2-course-6": "Data Engineering",
+    "m2-course-7": "Ontology & Web Mining",
+    "m2-course-8": "Bioinformatics",
+    "m2-course-9": "Human-Computer Interface Design",
+    "m2-course-10": "Bayesian Statistics",
+    "m2-course-11": "Survival Analysis",
+    "m2-course-12": "Time Series & Spatial Data",
+    "m2-course-13": "Epidemiology & Clinical Research",
+    "m2-course-14": "Precision Medicine & Personalized Medicine",
+    "m2-course-15": "Economic Models of Big Data in Healthcare",
+    "m2-course-16": "Professional English for Data Science",
+
+    "m-course-1": "Algorithms", "m-course-2": "Algebra and analysis",
+    "m-course-3": "Measurement and statistical probability", "m-course-4": "Parametric statistics",
+    "m-course-5": "Inferential statistics", "m-course-6": "Statistical modeling",
+    "m-course-7": "Optimization", "m-course-8": "Pattern mining",
+    "m-course-9": "Operating systems", "m-course-10": "Data management",
+    "m-course-11": "Health Data Science Toolbox", "m-course-12": "Web scraping and web crawling",
+    "m-course-13": "Computational modeling", "m-course-14": "Biomedical informatics",
+    "m-course-15": "Molecular and systems biology", "m-course-16": "Biochemistry",
+    "m-course-17": "Cell biology", "m-course-18": "Physiology and pathophysiology",
+    "m-course-19": "Pharmacology", "m-course-20": "Pharmacogenetics / Pharmacogenomics",
+    "m-course-21": "Genomics", "m-course-22": "Transcriptomics",
+    "m-course-23": "Proteomics", "m-course-24": "Metabolomics", "m-course-25": "Biomedical sensors",
+    "m-course-26": "Communication", "m-course-27": "Professional English",
+    "m-course-28": "Research training", "m-course-29": "Public health",
+    "m-course-30": "Epidemiology", "m-course-31": "Project management",
+
+    "lic-cat-1-title": "Fundamental sciences",
+    "lic-cat-2-title": "Anatomy, physiology and biomedical disciplines",
+    "lic-cat-3-title": "Imaging, radiology and professional techniques",
+    "lic-cat-4-title": "Statistics, computing and communication",
+    "lic-cat-5-title": "Health, ethics and professional environment",
+
+    "l-course-1": "Mathematics", "l-course-2": "Physics", "l-course-3": "General chemistry",
+    "l-course-4": "Organic chemistry", "l-course-5": "Structural biochemistry", "l-course-6": "Cell biology",
+    "l-course-7": "Microbiology", "l-course-8": "Immunology", "l-course-9": "Molecular biology",
+    "l-course-10": "Pharmacology", "l-course-11": "Radiobiology and radiation protection",
+    "l-course-12": "Anatomy: osteology, arthrology and myology", "l-course-13": "Splanchnology",
+    "l-course-14": "Embryology", "l-course-15": "Human physiology",
+    "l-course-16": "Radiological anatomy: trunk, viscera and skull", "l-course-17": "Neuroanatomy",
+    "l-course-18": "Medical semiology", "l-course-19": "Surgical semiology",
+    "l-course-20": "Radiological semiology", "l-course-21": "Equipment",
+    "l-course-22": "Image recording", "l-course-23": "Instrumental techniques",
+    "l-course-24": "Radiological techniques", "l-course-25": "Radiodiagnostic techniques",
+    "l-course-26": "Gynecological and obstetrical ultrasound", "l-course-27": "Biophysics of imaging",
+    "l-course-28": "Electronic physics", "l-course-29": "Medical informatics",
+    "l-course-30": "Introduction to computing", "l-course-31": "Biostatistics",
+    "l-course-32": "Technical English", "l-course-33": "Expression techniques and communication methods",
+    "l-course-34": "Public health", "l-course-35": "Medical ethics",
+    "l-course-36": "Labor law", "l-course-37": "Nursing care", "l-course-38": "Sports",
+
+    "experience-heading": "My professional experience",
+
+    "exp-title-0": "Data Scientist – Data Analyst Intern",
+    "exp-intro-0": "Internship at the Digital Systems Directorate of CHU Dijon Bourgogne. Development of NLP/NER pipelines (spaCy, CamemBERT), exploitation of the health data warehouse (EDS), benchmarking of language models and design of decision dashboards.",
+    "exp-subtitle-0a": "Main responsibilities",
+    "exp-subtitle-0b": "Analysis and delivery",
+    "exp-li-0a": "Development of NLP/NER pipelines (spaCy, CamemBERT) for the automatic extraction of key information from large-scale unstructured textual documents.",
+    "exp-li-0b": "Exploitation of the health data warehouse (EDS): SQL querying, cleaning, transformation and integration of heterogeneous data (ETL).",
+    "exp-li-0c": "Benchmarking and evaluation of language models (LLM, BERT, CamemBERT) on classification and information extraction tasks.",
+    "exp-li-0d": "Design of decision dashboards (SAP Business Objects, Power BI) and production of statistics for decision support.",
+    "exp-path-title-0": "Technical environment",
+    "exp-path-0": "Python",
+    "exp-path-0b": "NLP / NER",
+    "exp-path-0c": "spaCy · CamemBERT · BERT",
+    "exp-path-0d": "LLM",
+    "exp-path-0e": "SQL · ETL · EDS",
+    "exp-path-0f": "Pandas · Scikit-learn · NumPy",
+    "exp-path-0g": "SAP Business Objects",
+    "exp-path-0h": "Power BI",
+
+    "exp-title-1": "Medical Imaging Technician – Ultrasound Technician",
+    "exp-intro-1": "During my years of practice within these two healthcare facilities, I played an active role in patient follow-up, ultrasound assessment and diagnostic orientation, both in pregnancy care and gynecological conditions.",
+    "exp-subtitle-1": "Clinical practice",
+    "exp-subtitle-2": "Patient support",
+    "exp-li-1a": "Performed gynecological and obstetrical ultrasound examinations to explore the female reproductive system and monitor pregnancy progression.",
+    "exp-li-1b": "Contributed to the follow-up and care of pregnant women from early pregnancy to full term, with a focus on monitoring, assessment and clinical decision support.",
+    "exp-li-1c": "Participated in the care of women expressing a desire for motherhood, as well as patients facing primary or secondary infertility.",
+    "exp-li-1d": "Supported the early identification, analysis and diagnostic orientation of various obstetrical abnormalities and gynecological conditions encountered in routine practice.",
+    "exp-path-title-1": "Conditions encountered – Pregnancy",
+    "exp-path-title-2": "Conditions encountered – Reproductive system",
+    "exp-path-1": "Miscarriage", "exp-path-2": "Molar pregnancy", "exp-path-3": "Blighted ovum",
+    "exp-path-4": "Fetal hydrocephalus", "exp-path-5": "Fetal anencephaly", "exp-path-6": "Fetal renal cyst",
+    "exp-path-7": "Omphalocele", "exp-path-8": "Hydramnios / Polyhydramnios", "exp-path-9": "Oligohydramnios",
+    "exp-path-10": "Uterine fibroids", "exp-path-11": "Organic ovarian cysts",
+    "exp-path-12": "Functional ovarian cysts",
+    "exp-path-13": "Ovarian dystrophy / polycystic ovary syndrome",
+    "exp-path-14": "Endometriotic cysts",
+
+    "exp-title-2": "Medical Imaging Technician – Head of Radiology Unit",
+    "exp-intro-2": "For three years at this hospital center specialized in respiratory diseases, I held responsibilities in the radiology department, contributing to diagnosis, patient follow-up and service organization linked to the National Tuberculosis Control Program and the Global Fund.",
+    "exp-subtitle-3": "Main responsibilities",
+    "exp-subtitle-4": "Organization and supervision",
+    "exp-li-2a": "Head of the radiology unit: planning, team coordination and resource management.",
+    "exp-li-2b": "Performed chest and pulmonary radiographs for the diagnosis and follow-up of respiratory diseases.",
+    "exp-li-2c": "Contributed to the care of patients with pulmonary conditions in collaboration with physicians.",
+    "exp-li-2d": "Prepared monthly activity reports as part of the institutional monitoring of the department.",
+    "exp-li-2e": "Supervised trainees applying their theoretical knowledge in practice.",
+    "exp-li-2f": "Contributed to radiographic exploration of non-pulmonary pathologies, especially in traumatic and musculoskeletal contexts.",
+    "exp-path-title-3": "Respiratory conditions managed",
+    "exp-path-title-4": "Other radiographic explorations",
+    "exp-path-15": "Tuberculosis", "exp-path-16": "Pleurisy", "exp-path-17": "Bronchial syndromes",
+    "exp-path-18": "Chronic obstructive pulmonary disease", "exp-path-19": "Pleural effusion syndrome",
+    "exp-path-20": "Trauma / road traffic accidents", "exp-path-21": "Osteoarthritis",
+    "exp-path-22": "Abdominal explorations",
+
+    "exp-title-3": "Radiology Internship",
+    "exp-li-3a": "Performed radiographic imaging",
+    "exp-li-3b": "Processed radiographic images",
+
+    "skills-heading": "My skills",
+    "projects-heading": "My projects",
+
+    "project-title-1": "Analysis of global epidemiological trends and factors associated with breast cancer mortality",
+    "project-p-1": "This project combines web scraping (IHME, World Bank) across 20+ countries and 10 years of data, an interactive dashboard (Plotly Dash) and predictive modeling using PCA, K-Means and Random Forest — identifying 3 distinct epidemiological segments.",
+    "project-link-1": "View project",
+
+    "project-title-2": "Bibliometric analysis of research themes and trends on environmental factors and autism spectrum disorder in children",
+    "project-p-2": "Text mining on a corpus of 1,574 scientific articles from Web of Science (2000–2024). Using bibliometrix and VOSviewer to map co-citation networks, identify key authors and highlight emerging scientific trends.",
+    "project-link-2": "View project",
+
+    "project-title-3": "Statistical modeling of determinants of carotid intima-media thickness: multiple linear regression analysis",
+    "project-p-3": "Data preparation, cleaning and descriptive analysis under R. Multiple linear regression modeling — validated by residual tests, multicollinearity analysis and variable selection. Structured statistical report with results interpretation.",
+
+    "project-title-4": "Certified DataCamp training programs",
+    "project-p-4": "Structured certifications strengthening technical skills in data analysis, Machine Learning and querying: Associate Data Scientist in Python, Data Scientist in R, Associate Data Analyst in SQL and Associate Data Analyst in Power BI (2024).",
+    "project-link-4": "View",
+
+    "contact-heading": "Contact",
+    "footer-text": "© 2026 Hippolyte ADECHIAN"
+  }
+};
+
+// --- Mise à jour des libellés des boutons "Voir le contenu" ---
+function updateCourseButtonLabels(lang) {
+  toggleButtons.forEach((button) => {
+    const targetId = button.dataset.target;
+    const panel = document.getElementById(targetId);
+    const span = button.querySelector(".btn-label");
+    const isOpen = panel && panel.classList.contains("open");
+    if (span) {
+      span.textContent = isOpen
+        ? (lang === "fr" ? "Masquer le contenu" : "Hide content")
+        : (lang === "fr" ? "Voir le contenu" : "View content");
+    }
+  });
+}
+
+// --- Mise à jour des libellés des boutons "Lire la suite" ---
+function updateExperienceButtonLabels(lang) {
+  experienceToggleButtons.forEach((button) => {
+    const targetId = button.dataset.target;
+    const panel = document.getElementById(targetId);
+    const span = button.querySelector(".btn-label");
+    const isOpen = panel && panel.classList.contains("open");
+    if (span) {
+      span.textContent = isOpen
+        ? (lang === "fr" ? "Réduire" : "Show less")
+        : (lang === "fr" ? "Lire la suite" : "Read more");
+    }
+  });
+}
+
+// --- Application de la langue ---
+function setLanguage(lang) {
+  document.documentElement.lang = lang;
+  Object.keys(translations[lang]).forEach((id) => {
+    const element = document.getElementById(id);
+    if (element) { element.innerHTML = translations[lang][id]; }
+  });
+  langButtons.forEach((button) => {
+    button.classList.toggle("active", button.dataset.lang === lang);
+  });
+  updateCourseButtonLabels(lang);
+  updateExperienceButtonLabels(lang);
+  // ✅ FIX: localStorage encapsulé dans try/catch (navigation privée, exceptions Safari)
+  try {
+    localStorage.setItem("portfolioLanguage", lang);
+  } catch (e) {
+    // Silently ignore storage errors
+  }
+}
+
+// --- Boutons "Voir le contenu" (formations) ---
+toggleButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const targetId = button.dataset.target;
+    const panel = document.getElementById(targetId);
+    const lang = document.documentElement.lang || "fr";
+    if (!panel) return;
+    panel.classList.toggle("open");
+    button.classList.toggle("open");
+    updateCourseButtonLabels(lang);
+  });
+});
+
+// --- Boutons "Lire la suite" (expériences) ---
+experienceToggleButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const targetId = button.dataset.target;
+    const panel = document.getElementById(targetId);
+    const lang = document.documentElement.lang || "fr";
+    if (!panel) return;
+    panel.classList.toggle("open");
+    button.classList.toggle("open");
+    button.setAttribute("aria-expanded", panel.classList.contains("open") ? "true" : "false");
+    updateExperienceButtonLabels(lang);
+  });
+});
+
+// --- Changement de langue ---
+langButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const selectedLang = button.dataset.lang;
+    if (selectedLang && translations[selectedLang]) { setLanguage(selectedLang); }
+  });
+});
+
+// --- Scroll : activation nav + révélation sections ---
+window.addEventListener("scroll", () => {
+  activateMenuOnScroll();
+  revealOnScroll();
+}, { passive: true });
+
+// --- Initialisation au chargement ---
+window.addEventListener("DOMContentLoaded", () => {
+  window.scrollTo(0, 0);
+
+  // ✅ FIX: localStorage encapsulé dans try/catch
+  let savedLanguage = "fr";
+  try {
+    savedLanguage = localStorage.getItem("portfolioLanguage") || "fr";
+  } catch (e) {
+    // Silently ignore storage errors
+  }
+  setLanguage(translations[savedLanguage] ? savedLanguage : "fr");
+
+  // ✅ FIX: requestAnimationFrame garantit que le DOM est peint avant d'appliquer
+  // les classes .visible, évitant que les sections .reveal restent invisibles
+  requestAnimationFrame(() => {
+    revealOnScroll();
+    activateMenuOnScroll();
+  });
+});
+
+</script>
   <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </body>
 </html>
