@@ -55,7 +55,9 @@ img {
   border-radius: 18px;
 }
 
-/* TOPBAR */
+/* =====================
+   TOPBAR
+   ===================== */
 .topbar {
   width: 100%;
   min-height: var(--topbar-height);
@@ -93,6 +95,8 @@ img {
   align-items: center;
   gap: 10px;
   border-radius: 12px;
+  /* ✅ FIX: border transparent par défaut pour éviter un saut visuel au hover/active */
+  border: 1px solid transparent;
 }
 
 .topbar-nav a:hover,
@@ -155,6 +159,9 @@ img {
   box-shadow: 0 12px 22px rgba(59, 130, 246, 0.32);
 }
 
+/* =====================
+   MENU MOBILE
+   ===================== */
 .menu-toggle {
   position: fixed;
   top: 20px;
@@ -167,6 +174,7 @@ img {
   color: #fff;
   border-radius: 14px;
   cursor: pointer;
+  /* ✅ FIX: masqué par défaut sur desktop, affiché uniquement via media query */
   display: none;
   align-items: center;
   justify-content: center;
@@ -193,6 +201,8 @@ img {
   flex-direction: column;
   gap: 24px;
   border-left: 1px solid rgba(255, 255, 255, 0.08);
+  /* ✅ FIX: overflow-y pour les petits écrans */
+  overflow-y: auto;
 }
 
 .mobile-menu.open {
@@ -239,13 +249,17 @@ img {
   visibility: visible;
 }
 
-/* MAIN */
+/* =====================
+   MAIN
+   ===================== */
 .main-content {
   width: 100%;
   padding: calc(var(--topbar-height) + 20px) 36px 40px;
 }
 
-/* HERO */
+/* =====================
+   HERO
+   ===================== */
 .hero-premium {
   min-height: calc(100vh - var(--topbar-height) - 20px);
   position: relative;
@@ -303,6 +317,8 @@ img {
   background: var(--accent-light);
   box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.12), 0 0 14px rgba(96, 165, 250, 0.55);
   animation: badgePulse 2.2s ease-in-out infinite;
+  /* ✅ FIX: respect reduced-motion */
+  flex-shrink: 0;
 }
 
 .hero-name {
@@ -427,6 +443,9 @@ img {
   border-color: rgba(96, 165, 250, 0.35);
 }
 
+/* =====================
+   HERO VISUAL CARD
+   ===================== */
 .hero-visual {
   position: relative;
   width: 100%;
@@ -489,7 +508,7 @@ img {
 
 .mini-chart {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   gap: 8px;
   height: 82px;
   margin-bottom: 18px;
@@ -534,6 +553,9 @@ img {
   animation: pulseRing 5s ease-in-out infinite;
 }
 
+/* =====================
+   HERO BACKGROUND FX
+   ===================== */
 .hero-noise {
   position: absolute;
   inset: 0;
@@ -578,7 +600,9 @@ img {
   right: 8%;
 }
 
-/* CONTENT */
+/* =====================
+   CONTENT SECTIONS
+   ===================== */
 .content-section {
   padding: 54px 0 10px;
   scroll-margin-top: 110px;
@@ -635,7 +659,9 @@ img {
   color: var(--accent-light);
 }
 
-/* TIMELINE */
+/* =====================
+   TIMELINE
+   ===================== */
 .premium-timeline {
   position: relative;
   margin-top: 20px;
@@ -664,7 +690,7 @@ img {
 
 .timeline-content {
   padding: 22px;
-  transition: 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .timeline-content:hover,
@@ -705,6 +731,9 @@ img {
   line-height: 1.8 !important;
 }
 
+/* =====================
+   TOGGLE BUTTONS
+   ===================== */
 .toggle-courses-btn,
 .toggle-experience-btn {
   display: inline-flex;
@@ -736,8 +765,13 @@ img {
   transform: rotate(180deg);
 }
 
+/* =====================
+   PANELS (cours / expériences)
+   ===================== */
 .courses-panel,
 .experience-panel {
+  /* ✅ FIX: utilisation de display:none + display:block (plus fiable que visibility)
+     Le JS toggle la classe .open pour afficher/masquer */
   display: none;
 }
 
@@ -846,7 +880,9 @@ img {
   align-items: center;
 }
 
-/* SKILLS */
+/* =====================
+   SKILLS
+   ===================== */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -857,7 +893,7 @@ img {
 .skill-card {
   text-align: center;
   padding: 20px;
-  transition: 0.3s ease;
+  transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -870,7 +906,6 @@ img {
   font-size: 1.8rem;
   color: var(--accent-light);
   display: block;
-  margin-bottom: 0;
 }
 
 .skill-card span {
@@ -887,7 +922,9 @@ img {
   margin: 0 auto;
 }
 
-/* PROJECTS */
+/* =====================
+   PROJECTS
+   ===================== */
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -897,7 +934,7 @@ img {
 
 .project-card {
   overflow: hidden;
-  transition: 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .premium-project-card {
@@ -1006,7 +1043,9 @@ img {
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
 }
 
-/* FOOTER */
+/* =====================
+   FOOTER
+   ===================== */
 .footer {
   padding: 34px 0 16px;
   text-align: center;
@@ -1014,7 +1053,9 @@ img {
   font-size: 0.95rem;
 }
 
-/* REVEAL */
+/* =====================
+   REVEAL ANIMATION
+   ===================== */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -1026,7 +1067,9 @@ img {
   transform: translateY(0);
 }
 
-/* FADE-UP HERO */
+/* =====================
+   HERO FADE-UP
+   ===================== */
 .animate-fade-up {
   opacity: 0;
   transform: translateY(18px);
@@ -1038,7 +1081,9 @@ img {
 .delay-4 { animation-delay: 0.36s; }
 .delay-5 { animation-delay: 0.48s; }
 
-/* KEYFRAMES */
+/* =====================
+   KEYFRAMES
+   ===================== */
 @keyframes fadeUp {
   to {
     opacity: 1;
@@ -1057,14 +1102,8 @@ img {
 }
 
 @keyframes pulseRing {
-  0%, 100% {
-    transform: scale(0.95);
-    opacity: 0.5;
-  }
-  50% {
-    transform: scale(1.03);
-    opacity: 0.9;
-  }
+  0%, 100% { transform: scale(0.95); opacity: 0.5; }
+  50% { transform: scale(1.03); opacity: 0.9; }
 }
 
 @keyframes chartPulse {
@@ -1072,7 +1111,38 @@ img {
   50% { filter: brightness(1.15); }
 }
 
-/* RESPONSIVE */
+/* =====================
+   REDUCED MOTION
+   ===================== */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .badge-dot,
+  .main-dashboard,
+  .pulse-ring,
+  .mini-chart span {
+    animation: none;
+  }
+
+  .hero-btn:hover,
+  .cv-btn:hover,
+  .project-link:hover,
+  .timeline-content:hover,
+  .skill-card:hover,
+  .project-card:hover {
+    transform: none;
+  }
+}
+
+/* =====================
+   RESPONSIVE — ≤ 1100px
+   ===================== */
 @media (max-width: 1100px) {
   .hero-layout {
     grid-template-columns: 1fr;
@@ -1093,17 +1163,23 @@ img {
   }
 }
 
+/* =====================
+   RESPONSIVE — ≤ 900px
+   ===================== */
 @media (max-width: 900px) {
+  /* ✅ FIX: topbar masquée sur mobile */
   .topbar {
     display: none;
   }
 
+  /* ✅ FIX: bouton hamburger visible sur mobile */
   .menu-toggle {
     display: inline-flex;
   }
 
+  /* ✅ FIX: padding-top adapté au bouton hamburger (60px) au lieu de topbar (108px) */
   .main-content {
-    padding: 90px 20px 30px;
+    padding: 70px 20px 30px;
   }
 
   .hero-premium {
@@ -1134,6 +1210,9 @@ img {
   }
 }
 
+/* =====================
+   RESPONSIVE — ≤ 640px
+   ===================== */
 @media (max-width: 640px) {
   .content-section h2 {
     font-size: 1.6rem;
