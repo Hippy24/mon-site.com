@@ -11,10 +11,12 @@ const experienceToggleButtons = document.querySelectorAll(".toggle-experience-bt
 const sections = document.querySelectorAll("section[id]");
 const reveals = document.querySelectorAll(".reveal");
 
+// ✅ FIX: Empêche le navigateur de restaurer la position de scroll entre visites
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
 }
 
+// --- Menu mobile ---
 function openMobileMenu() {
   if (mobileMenu) mobileMenu.classList.add("open");
   if (overlay) overlay.classList.add("show");
@@ -33,6 +35,7 @@ navLinks.forEach((link) => {
   link.addEventListener("click", () => { closeMobileMenu(); });
 });
 
+// --- Activation du lien de navigation selon la section visible ---
 function activateMenuOnScroll() {
   const scrollY = window.scrollY || window.pageYOffset;
   let currentSectionId = "";
@@ -45,8 +48,10 @@ function activateMenuOnScroll() {
     }
   });
 
-  if (!currentSectionId && sections.length > 0) {
-    currentSectionId = sections[0].getAttribute("id");
+  // ✅ FIX: Fallback sur "about" si aucune section n'est détectée
+  // (évite qu'aucun lien ne soit actif au chargement, car #hero n'est pas dans la nav)
+  if (!currentSectionId) {
+    currentSectionId = "about";
   }
 
   navLinks.forEach((link) => {
@@ -58,6 +63,7 @@ function activateMenuOnScroll() {
   });
 }
 
+// --- Révélation des sections au scroll ---
 function revealOnScroll() {
   const windowHeight = window.innerHeight;
   reveals.forEach((element) => {
@@ -68,6 +74,7 @@ function revealOnScroll() {
   });
 }
 
+// --- Traductions FR / EN ---
 const translations = {
   fr: {
     "nav-about": "À propos",
@@ -474,6 +481,7 @@ const translations = {
   }
 };
 
+// --- Mise à jour des libellés des boutons "Voir le contenu" ---
 function updateCourseButtonLabels(lang) {
   toggleButtons.forEach((button) => {
     const targetId = button.dataset.target;
@@ -488,6 +496,7 @@ function updateCourseButtonLabels(lang) {
   });
 }
 
+// --- Mise à jour des libellés des boutons "Lire la suite" ---
 function updateExperienceButtonLabels(lang) {
   experienceToggleButtons.forEach((button) => {
     const targetId = button.dataset.target;
@@ -502,6 +511,7 @@ function updateExperienceButtonLabels(lang) {
   });
 }
 
+// --- Application de la langue ---
 function setLanguage(lang) {
   document.documentElement.lang = lang;
   Object.keys(translations[lang]).forEach((id) => {
@@ -513,9 +523,15 @@ function setLanguage(lang) {
   });
   updateCourseButtonLabels(lang);
   updateExperienceButtonLabels(lang);
-  localStorage.setItem("portfolioLanguage", lang);
+  // ✅ FIX: localStorage encapsulé dans try/catch (navigation privée, exceptions Safari)
+  try {
+    localStorage.setItem("portfolioLanguage", lang);
+  } catch (e) {
+    // Silently ignore storage errors
+  }
 }
 
+// --- Boutons "Voir le contenu" (formations) ---
 toggleButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const targetId = button.dataset.target;
@@ -528,6 +544,7 @@ toggleButtons.forEach((button) => {
   });
 });
 
+// --- Boutons "Lire la suite" (expériences) ---
 experienceToggleButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const targetId = button.dataset.target;
@@ -541,6 +558,7 @@ experienceToggleButtons.forEach((button) => {
   });
 });
 
+// --- Changement de langue ---
 langButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const selectedLang = button.dataset.lang;
@@ -548,15 +566,29 @@ langButtons.forEach((button) => {
   });
 });
 
+// --- Scroll : activation nav + révélation sections ---
 window.addEventListener("scroll", () => {
   activateMenuOnScroll();
   revealOnScroll();
-});
+}, { passive: true });
 
+// --- Initialisation au chargement ---
 window.addEventListener("DOMContentLoaded", () => {
   window.scrollTo(0, 0);
-  const savedLanguage = localStorage.getItem("portfolioLanguage");
-  setLanguage(savedLanguage && translations[savedLanguage] ? savedLanguage : "fr");
-  revealOnScroll();
-  activateMenuOnScroll();
+
+  // ✅ FIX: localStorage encapsulé dans try/catch
+  let savedLanguage = "fr";
+  try {
+    savedLanguage = localStorage.getItem("portfolioLanguage") || "fr";
+  } catch (e) {
+    // Silently ignore storage errors
+  }
+  setLanguage(translations[savedLanguage] ? savedLanguage : "fr");
+
+  // ✅ FIX: requestAnimationFrame garantit que le DOM est peint avant d'appliquer
+  // les classes .visible, évitant que les sections .reveal restent invisibles
+  requestAnimationFrame(() => {
+    revealOnScroll();
+    activateMenuOnScroll();
+  });
 });
